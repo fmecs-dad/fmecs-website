@@ -21,28 +21,30 @@ header .container {
 
 .logo-grid {
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(5, 1fr); /* 5 colonnes bien alignées */
     grid-template-rows: auto auto;
     justify-content: center;
     align-items: center;
     text-align: center;
-    row-gap: 6px;
-    column-gap: 20px; /* élargi pour correspondre à l’icône */
+    row-gap: 4px;      /* espace vertical entre points et lettres */
+    column-gap: 6px;   /* points plus rapprochés */
 }
 
 .dot {
-    width: 12px;       /* taille identique à ton favicon */
-    height: 12px;
+    width: 10px;
+    height: 10px;
     background-color: #FFD966;
     border-radius: 50%;
+    margin: 0;         /* surtout pas de marge qui casse l’alignement */
 }
 
 .letter {
     color: #F4F4F4;
-    font-size: 1.1rem; /* calibré pour s’aligner visuellement avec les points */
+    font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
+
 nav a {
     margin-left: 20px;
     color: #ccc;
@@ -99,6 +101,7 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
 
 
