@@ -19,34 +19,30 @@ header .container {
     margin: auto;
 }
 
-.logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.dots {
-    display: flex;
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: auto auto;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    row-gap: 6px; /* espace entre points et lettres */
+    column-gap: 14px; /* espace horizontal identique à ton icône */
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;       /* taille identique à ton favicon */
+    height: 12px;
     background-color: #FFD966;
     border-radius: 50%;
-    margin: 0 4px;
 }
 
-.logotext {
+.letter {
     color: #F4F4F4;
-    font-size: 1.4rem;
-    margin-top: 5px;
-    letter-spacing: 1px;
+    font-size: 1.1rem; /* calibré pour s’aligner visuellement avec les points */
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
-
-
 nav a {
     margin-left: 20px;
     color: #ccc;
@@ -103,6 +99,7 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
 
 
