@@ -9,6 +9,10 @@ header {
     background: #111;
     padding: 20px 0;
     border-bottom: 1px solid #222;
+
+    display: flex;               /* met tout sur une seule ligne */
+    justify-content: space-between; /* logo à gauche, menu à droite */
+    align-items: center;         /* aligne verticalement */
 }
 
 header .container {
@@ -21,7 +25,7 @@ header .container {
 
 .logo-row {
     display: flex;
-    gap: 6px; /* rapproche les colonnes */
+    gap: 6px;
 }
 
 .logo-col {
@@ -114,6 +118,7 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
 
 
