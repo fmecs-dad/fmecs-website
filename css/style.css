@@ -38,7 +38,14 @@ header .container {
     margin-top: 5px;
     letter-spacing: 1px;
 }
-
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #FFD966;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+}
 
 nav a {
     margin-left: 20px;
@@ -96,4 +103,5 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
