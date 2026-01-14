@@ -57,6 +57,20 @@ nav a:hover {
     color: #fff;
 }
 
+.nav-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li a {
+  color: #AEE1F9;
+  text-decoration: none;
+  font-weight: 500;
+}
+
 .hero {
     text-align: center;
     padding: 120px 20px;
@@ -103,6 +117,7 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
 
 
