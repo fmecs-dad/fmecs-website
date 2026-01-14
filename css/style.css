@@ -7,7 +7,7 @@ body {
 
 header {
     background: #111;
-    padding: 20px 40px;
+    padding: 20px 80px;
     border-bottom: 1px solid #222;
 
     display: flex;
@@ -104,6 +104,7 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
 
 
