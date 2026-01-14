@@ -21,16 +21,14 @@ header .container {
 
 .logo-row {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px; /* rapproche les colonnes, ajuste à 4px si besoin */
+    gap: 6px; /* rapproche les colonnes */
 }
 
 .logo-col {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px; /* espace vertical point/lettre */
+    gap: 2px;
 }
 
 .dot {
@@ -42,10 +40,9 @@ header .container {
 
 .letter {
     color: #F4F4F4;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
-
 
 nav a {
     margin-left: 20px;
@@ -117,6 +114,7 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
 
 
