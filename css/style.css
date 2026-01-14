@@ -7,12 +7,18 @@ body {
 
 header {
     background: #111;
-    padding: 20px 0;
+    padding: 20px 40px;
     border-bottom: 1px solid #222;
 
-    display: flex;               /* met tout sur une seule ligne */
-    justify-content: space-between; /* logo à gauche, menu à droite */
-    align-items: center;         /* aligne verticalement */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav a {
+    margin-left: 20px;
+    color: #AEE1F9;
+    text-decoration: none;
 }
 
 header .container {
@@ -48,28 +54,8 @@ header .container {
     font-weight: 600;
 }
 
-nav a {
-    margin-left: 20px;
-    color: #ccc;
-    text-decoration: none;
-}
-
 nav a:hover {
     color: #fff;
-}
-
-.nav-list {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-list li a {
-  color: #AEE1F9;
-  text-decoration: none;
-  font-weight: 500;
 }
 
 .hero {
@@ -118,6 +104,7 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
 
 
