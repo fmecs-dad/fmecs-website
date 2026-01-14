@@ -19,15 +19,18 @@ header .container {
     margin: auto;
 }
 
-.logo-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 colonnes bien alignées */
-    grid-template-rows: auto auto;
+.logo-row {
+    display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    row-gap: 4px;      /* espace vertical entre points et lettres */
-    column-gap: 6px;   /* points plus rapprochés */
+    gap: 6px; /* rapproche les colonnes, ajuste à 4px si besoin */
+}
+
+.logo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px; /* espace vertical point/lettre */
 }
 
 .dot {
@@ -35,15 +38,14 @@ header .container {
     height: 10px;
     background-color: #FFD966;
     border-radius: 50%;
-    margin: 0;         /* surtout pas de marge qui casse l’alignement */
 }
 
 .letter {
     color: #F4F4F4;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
 }
+
 
 nav a {
     margin-left: 20px;
@@ -101,6 +103,7 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
 
 
