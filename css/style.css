@@ -15,11 +15,6 @@ header {
     align-items: center;
 }
 
-.nav a {
-    margin-left: 20px;
-    color: #AEE1F9;
-    text-decoration: none;
-}
 
 header .container {
     display: flex;
@@ -34,6 +29,15 @@ header .container {
     gap: 6px;
 }
 
+.nav a {
+    margin-left: 20px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #fff;
+}
 .logo-col {
     display: flex;
     flex-direction: column;
@@ -52,10 +56,6 @@ header .container {
     color: #F4F4F4;
     font-size: 1.2rem;
     font-weight: 600;
-}
-
-nav a:hover {
-    color: #fff;
 }
 
 .hero {
@@ -104,6 +104,7 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
 
 
