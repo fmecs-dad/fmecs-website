@@ -26,8 +26,8 @@ header .container {
     justify-content: center;
     align-items: center;
     text-align: center;
-    row-gap: 6px; /* espace entre points et lettres */
-    column-gap: 14px; /* espace horizontal identique à ton icône */
+    row-gap: 6px;
+    column-gap: 20px; /* élargi pour correspondre à l’icône */
 }
 
 .dot {
@@ -99,6 +99,7 @@ footer {
     background: #111;
     border-top: 1px solid #222;
 }
+
 
 
 
