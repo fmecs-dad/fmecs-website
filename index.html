@@ -80,20 +80,7 @@
         <h3>Contact</h3>
         <p>Pour toute question ou collaboration, vous pouvez me contacter via les réseaux sociaux ou par email.</p><section id="contact">
   <h2>Contact</h2>
-  <p>Pour toute question ou collaboration, vous pouvez me contacter via ce formulaire :</p>
-
-  <form action="https://formspree.io/f/mgoovrkz" method="POST" class="contact-form">
-    <label for="email">Votre email</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-
-    <!-- Honeypot anti-spam -->
-    <input type="text" name="_gotcha" style="display:none">
-
-    <button type="submit">Envoyer</button>
-  </form>
+  <p>Pour toute question ou collaboration, vous pouvez me contacter via ce <a id="open-modal">formulaire</a>.</p>
 </section>
 
         
@@ -105,6 +92,35 @@
         <p>© 2026 FmecS – Tous droits réservés</p>
     </div>
 </footer>
+<script>
+  const modal = document.getElementById("contact-modal");
+  const openBtn = document.getElementById("open-modal");
+  const closeBtn = document.querySelector(".close");
+
+  openBtn.onclick = () => modal.style.display = "block";
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+</script>
 
 </body>
+<div id="contact-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <h3>Contact</h3>
+
+    <form action="https://formspree.io/f/xxxxxxx" method="POST" class="contact-form">
+      <label for="email">Votre email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+</div>
+
 </html>
