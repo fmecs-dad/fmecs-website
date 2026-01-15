@@ -115,13 +115,22 @@
   const openBtn = document.getElementById("open-modal");
   const closeBtn = document.querySelector(".close");
   const form = document.querySelector(".contact-form");
+  const successMsg = document.getElementById("form-success");
 
-  openBtn.onclick = () => modal.style.display = "block";
+  // Ouvrir la modale
+  openBtn.onclick = () => {
+    modal.style.display = "block";
+    successMsg.style.display = "none"; // Cache le message
+    form.style.display = "block";      // Réaffiche le formulaire
+  };
+
+  // Fermer la modale
   closeBtn.onclick = () => modal.style.display = "none";
   window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
 
+  // Envoi AJAX
   form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Empêche la redirection Formspree
+    e.preventDefault();
 
     const data = new FormData(form);
 
@@ -132,10 +141,13 @@
     });
 
     if (response.ok) {
-      form.reset(); // 🔥 Vide tous les champs du formulaire
-      form.innerHTML = "<p style='padding:20px; text-align:center;'>Merci, votre message a bien été envoyé.</p>";
+      form.reset();
+      form.style.display = "none";        // Cache le formulaire
+      successMsg.style.display = "block"; // Affiche le message
     } else {
-      form.innerHTML = "<p style='padding:20px; text-align:center;'>Une erreur est survenue. Merci de réessayer.</p>";
+      form.style.display = "none";
+      successMsg.innerText = "Une erreur est survenue. Merci de réessayer.";
+      successMsg.style.display = "block";
     }
   });
 </script>
