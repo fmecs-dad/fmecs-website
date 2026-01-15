@@ -118,7 +118,7 @@
   window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
 
   form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Empêche l'ouverture de la page Formspree
+    e.preventDefault(); // Empêche la redirection Formspree
 
     const data = new FormData(form);
 
@@ -129,6 +129,7 @@
     });
 
     if (response.ok) {
+      form.reset(); // 🔥 Vide tous les champs du formulaire
       form.innerHTML = "<p style='padding:20px; text-align:center;'>Merci, votre message a bien été envoyé.</p>";
     } else {
       form.innerHTML = "<p style='padding:20px; text-align:center;'>Une erreur est survenue. Merci de réessayer.</p>";
