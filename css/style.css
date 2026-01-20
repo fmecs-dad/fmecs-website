@@ -334,4 +334,21 @@ footer {
         padding: 12px;
         font-size: 1rem;
     }
+    
+    /* Zones de saisie parfaitement responsives */
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        font-size: 1rem;
+        margin-top: 8px;
+    }
+
+    /* Pour éviter que le textarea déborde */
+    .contact-form textarea {
+        resize: vertical;
+    }
 }
+
