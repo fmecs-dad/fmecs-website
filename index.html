@@ -157,16 +157,30 @@
     document.querySelectorAll('#mobile-menu a').forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
-    // --- MODALE CONTACT ---
+// --- MODALE CONTACT ---
 const contactBtn = document.getElementById('contact-btn');
+const contactBtnMobile = document.getElementById('contact-btn-mobile');
 const contactModal = document.getElementById('contact-modal');
 const closeModal = document.querySelector('#contact-modal .close');
 
-// Ouvrir la modale
-contactBtn.addEventListener('click', (e) => {
+// Fonction d'ouverture
+function openContactModal(e) {
     e.preventDefault();
     contactModal.style.display = "block";
-});
+}
+
+// Ouvrir depuis desktop
+if (contactBtn) {
+    contactBtn.addEventListener('click', openContactModal);
+}
+
+// Ouvrir depuis mobile
+if (contactBtnMobile) {
+    contactBtnMobile.addEventListener('click', () => {
+        closeMobileMenu(); // ferme le burger
+        setTimeout(() => contactModal.style.display = "block", 300);
+    });
+}
 
 // Fermer en cliquant sur la croix
 closeModal.addEventListener('click', () => {
@@ -180,10 +194,12 @@ window.addEventListener('click', (e) => {
     }
 });
 
+
 </script>
 
 </body>
 </html>
+
 
 
 
