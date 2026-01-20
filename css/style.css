@@ -102,7 +102,7 @@ footer {
     border-top: 1px solid #444;
 }
 
-/* --- MODALE CONTACT (version claire) --- */
+/* --- MODALE CONTACT --- */
 
 .modal {
   display: none;
@@ -175,6 +175,69 @@ footer {
 .contact-form button:hover {
   background: #e6c87a;
 }
+
+/* --- VERSION MOBILE --- */
+@media (max-width: 768px) {
+
+    /* Header */
+    header {
+        padding: 12px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav a {
+        margin-left: 0;
+        margin-right: 15px;
+        font-size: 0.95rem;
+    }
+
+    .nav {
+        display: flex;
+        gap: 15px;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .cta {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Sections */
+    .section {
+        padding: 40px 20px;
+    }
+
+    .section h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Container */
+    .container {
+        width: 92%;
+    }
+
+    /* Modale */
+    .modal-content {
+        width: 92%;
+        margin-top: 30%;
+        padding: 20px;
+    }
+}
+
 
 
 
