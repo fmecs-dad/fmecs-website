@@ -102,61 +102,79 @@ footer {
     border-top: 1px solid #444;
 }
 
-/* --- MODALE CONTACT --- */
+/* --- MODALE CONTACT (version claire) --- */
 
 .modal {
-  display: none; /* Cache la modale par défaut */
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6); /* Fond semi-transparent */
+  background: rgba(0,0,0,0.6);
 }
 
 .modal-content {
-  background: #111;
+  background: #fafafa;
   margin: 10% auto;
-  padding: 20px;
+  padding: 25px;
   border-radius: 8px;
   width: 90%;
   max-width: 400px;
-  color: white;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  color: #222;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
 .close {
   float: right;
   font-size: 24px;
   cursor: pointer;
-  color: #fff;
+  color: #222;
+}
+
+.contact-form label {
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
-  background: #222;
-  border: 1px solid #333;
-  color: #fff;
+  margin-top: 6px;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #222;
   border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #fedd94;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(254,221,148,0.4);
 }
 
 .contact-form button {
   margin-top: 15px;
   padding: 12px;
   width: 100%;
-  background: #ffcc00;
-  color: #000;
+  background: #fedd94;
+  color: #222;
   border: none;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .contact-form button:hover {
-  background: #e6b800;
+  background: #e6c87a;
 }
+
+
 
