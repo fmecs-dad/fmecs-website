@@ -281,16 +281,7 @@ footer {
     color: #fedd94;
 }
 
-/* Version mobile */
-@media (max-width: 768px) {
-    .nav {
-        display: none;
-    }
-
-    .burger {
-        display: flex;
-    }
-}
+/* Overlay derrière le menu mobile */
 .mobile-overlay {
     display: none;
     position: fixed;
@@ -302,8 +293,45 @@ footer {
     z-index: 1500;
 }
 
+/* --- VERSION MOBILE --- */
+@media (max-width: 768px) {
 
+    /* Afficher le burger */
+    .burger {
+        display: flex;
+    }
 
+    /* Cacher le menu desktop */
+    .nav {
+        display: none;
+    }
 
+    /* Ajuster le header */
+    header {
+        padding: 12px 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 
+    /* Modale responsive */
+    .modal-content {
+        width: 90%;
+        max-width: 90%;
+        margin: 30% auto;
+        padding: 15px;
+        border-radius: 6px;
+    }
 
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .contact-form button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
