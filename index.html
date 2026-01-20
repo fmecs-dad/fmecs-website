@@ -194,12 +194,22 @@ window.addEventListener('click', (e) => {
         contactModal.style.display = "none";
     }
 });
+// Ouvrir la modale depuis le lien dans la section contact
+const openModalLink = document.getElementById('open-modal');
+
+if (openModalLink) {
+    openModalLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactModal.style.display = "block";
+    });
+}
 
 
 </script>
 
 </body>
 </html>
+
 
 
 
