@@ -37,6 +37,8 @@
       <a href="#contact">Contact</a>
     </div>
 
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    
 </header>
 
 <section class="hero">
@@ -144,6 +146,16 @@
         }
     };
 
+  // Fermer le menu mobile quand on clique sur un lien
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.style.right = "-250px";
+        setTimeout(() => {
+            mobileMenu.style.display = "none";
+        }, 300);
+    });
+});
+
   // Ouvrir la modale
   openBtn.onclick = () => {
     modal.style.display = "block";
@@ -181,6 +193,7 @@
 
 </body>
 </html>
+
 
 
 
