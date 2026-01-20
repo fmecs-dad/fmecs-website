@@ -129,29 +129,7 @@
   const burger = document.querySelector('.burger');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileOverlay = document.getElementById('mobile-overlay');
-    // --- MODALE CONTACT ---
-    const contactBtn = document.getElementById('contact-btn');
-    const contactModal = document.getElementById('contact-modal');
-    const closeModal = document.querySelector('.modal .close');
     
-    // Ouvrir la modale
-    contactBtn.onclick = (e) => {
-        e.preventDefault();
-        contactModal.style.display = "block";
-    };
-    
-    // Fermer la modale en cliquant sur la croix
-    closeModal.onclick = () => {
-        contactModal.style.display = "none";
-    };
-    
-    // Fermer en cliquant en dehors
-    window.onclick = (e) => {
-        if (e.target === contactModal) {
-            contactModal.style.display = "none";
-        }
-    };
-  
     // Ouvrir le menu
     burger.onclick = () => {
         mobileMenu.style.display = "block";
@@ -179,11 +157,34 @@
     document.querySelectorAll('#mobile-menu a').forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
+    // --- MODALE CONTACT ---
+const contactBtn = document.getElementById('contact-btn');
+const contactModal = document.getElementById('contact-modal');
+const closeModal = document.querySelector('#contact-modal .close');
+
+// Ouvrir la modale
+contactBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    contactModal.style.display = "block";
+});
+
+// Fermer en cliquant sur la croix
+closeModal.addEventListener('click', () => {
+    contactModal.style.display = "none";
+});
+
+// Fermer en cliquant en dehors
+window.addEventListener('click', (e) => {
+    if (e.target === contactModal) {
+        contactModal.style.display = "none";
+    }
+});
 
 </script>
 
 </body>
 </html>
+
 
 
 
