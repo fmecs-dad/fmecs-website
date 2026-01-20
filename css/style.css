@@ -238,6 +238,61 @@ footer {
     }
 }
 
+/* --- BURGER MENU --- */
+
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: #f0f0f0;
+    border-radius: 3px;
+}
+
+/* Menu mobile caché */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 220px;
+    height: 100%;
+    background: #333;
+    padding: 60px 20px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+    transition: right 0.3s ease;
+    z-index: 2000;
+}
+
+.mobile-menu a {
+    display: block;
+    margin-bottom: 20px;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.mobile-menu a:hover {
+    color: #fedd94;
+}
+
+/* Version mobile */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
+
+
 
 
 
