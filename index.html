@@ -127,72 +127,42 @@
   const form = document.querySelector(".contact-form");
   const successMsg = document.getElementById("form-success");
   const burger = document.querySelector('.burger');
-  const mobileMenu = document.getElementById('mobile-menu');
-
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    
+    // Ouvrir le menu
     burger.onclick = () => {
         mobileMenu.style.display = "block";
+        mobileOverlay.style.display = "block";
+    
         setTimeout(() => {
             mobileMenu.style.right = "0";
         }, 10);
     };
-
-    window.onclick = (e) => {
-        if (e.target === mobileMenu) return;
-        if (!mobileMenu.contains(e.target) && e.target !== burger) {
-            mobileMenu.style.right = "-250px";
-            setTimeout(() => {
-                mobileMenu.style.display = "none";
-            }, 300);
-        }
-    };
-
-  // Fermer le menu mobile quand on clique sur un lien
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
+    
+    // Fermer le menu
+    function closeMobileMenu() {
         mobileMenu.style.right = "-250px";
+        mobileOverlay.style.display = "none";
+    
         setTimeout(() => {
             mobileMenu.style.display = "none";
         }, 300);
-    });
-});
-
-  // Ouvrir la modale
-  openBtn.onclick = () => {
-    modal.style.display = "block";
-    successMsg.style.display = "none"; // Cache le message
-    form.style.display = "block";      // Réaffiche le formulaire
-  };
-
-  // Fermer la modale
-  closeBtn.onclick = () => modal.style.display = "none";
-  window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
-
-  // Envoi AJAX
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const data = new FormData(form);
-
-    const response = await fetch("https://formspree.io/f/mgoovrkz", {
-      method: "POST",
-      body: data,
-      headers: { "Accept": "application/json" }
-    });
-
-    if (response.ok) {
-      form.reset();
-      form.style.display = "none";        // Cache le formulaire
-      successMsg.style.display = "block"; // Affiche le message
-    } else {
-      form.style.display = "none";
-      successMsg.innerText = "Une erreur est survenue. Merci de réessayer.";
-      successMsg.style.display = "block";
     }
-  });
+    
+    // Clic sur overlay → fermer
+    mobileOverlay.onclick = closeMobileMenu;
+    
+    // Clic sur un lien → fermer
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
 </script>
 
 </body>
 </html>
+
 
 
 
