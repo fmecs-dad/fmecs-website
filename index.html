@@ -124,6 +124,25 @@
   const closeBtn = document.querySelector(".close");
   const form = document.querySelector(".contact-form");
   const successMsg = document.getElementById("form-success");
+  const burger = document.querySelector('.burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+    burger.onclick = () => {
+        mobileMenu.style.display = "block";
+        setTimeout(() => {
+            mobileMenu.style.right = "0";
+        }, 10);
+    };
+
+    window.onclick = (e) => {
+        if (e.target === mobileMenu) return;
+        if (!mobileMenu.contains(e.target) && e.target !== burger) {
+            mobileMenu.style.right = "-250px";
+            setTimeout(() => {
+                mobileMenu.style.display = "none";
+            }, 300);
+        }
+    };
 
   // Ouvrir la modale
   openBtn.onclick = () => {
@@ -162,5 +181,6 @@
 
 </body>
 </html>
+
 
 
