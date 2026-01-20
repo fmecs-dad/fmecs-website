@@ -1,95 +1,89 @@
+/* --- BASE --- */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f0f0f;
-    color: #f0f0f0;
+    background: #fafafa;
+    color: #222;
+    line-height: 1.6;
 }
+
+/* --- HEADER --- */
 
 header {
-    background: #111;
-    padding: 20px 80px;
-    border-bottom: 1px solid #222;
-
+    background: #333;
+    padding: 15px 50px;
+    border-bottom: 1px solid #444;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: auto;
-}
-
-.logo-row {
-    display: flex;
-    gap: 6px;
+.logo img {
+    height: 72px;
+    width: auto;
 }
 
 .nav a {
-    margin-left: 60px;
-    color: #ccc;
+    margin-left: 30px;
+    color: #f0f0f0;
     text-decoration: none;
+    font-size: 0.95rem;
 }
 
-nav a:hover {
-    color: #fff;
-}
-.logo-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
+.nav a:hover {
+    color: #fedd94;
 }
 
-.dot {
-    width: 10px;
-    height: 10px;
-    background-color: #FFD966;
-    border-radius: 50%;
-}
-
-.letter {
-    color: #fedd94 !important;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
+/* --- HERO --- */
 
 .hero {
     text-align: center;
-    padding: 120px 20px;
-    background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+    padding: 80px 20px;
+    background: #f2f2f2;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto 20px;
 }
 
 .cta {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #ffcc00;
-    color: #000;
+    padding: 10px 22px;
+    background: #fedd94;
+    color: #222;
     font-weight: bold;
     border-radius: 5px;
     text-decoration: none;
+    font-size: 1rem;
 }
 
 .cta:hover {
-    background: #e6b800;
+    background: #e6c87a;
 }
 
+/* --- SECTIONS --- */
+
 .section {
-    padding: 60px 20px;
+    padding: 50px 20px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .section.alt {
-    background: #151515;
+    background: #f2f2f2;
+}
+
+.section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
 }
 
 .container {
@@ -98,11 +92,14 @@ nav a:hover {
     margin: auto;
 }
 
+/* --- FOOTER --- */
+
 footer {
     text-align: center;
     padding: 20px;
-    background: #111;
-    border-top: 1px solid #222;
+    background: #333;
+    color: #ccc;
+    border-top: 1px solid #444;
 }
 
 /* --- MODALE CONTACT --- */
@@ -162,20 +159,4 @@ footer {
 .contact-form button:hover {
   background: #e6b800;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
