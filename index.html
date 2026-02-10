@@ -15,38 +15,27 @@
 
 <header>
     <div class="logo">
-      <img src="img/logo-fmecs.png">
+        <div class="logo-row">
+            <div class="logo-col"><div class="dot"></div><div class="letter">F</div></div>
+            <div class="logo-col"><div class="dot"></div><div class="letter">m</div></div>
+            <div class="logo-col"><div class="dot"></div><div class="letter">e</div></div>
+            <div class="logo-col"><div class="dot"></div><div class="letter">c</div></div>
+            <div class="logo-col"><div class="dot"></div><div class="letter">S</div></div>
+        </div>
     </div>
-
 
     <nav class="nav">
-      <a href="#studio">Le studio</a>
-      <a href="#projets">Projets</a>
-      <a href="#" id="contact-btn">Contact</a>
+        <a href="#studio">Le studio</a>
+        <a href="#projets">Projets</a>
+        <a href="#contact">Contact</a>
     </nav>
-
-    
-    <div class="burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <div class="mobile-menu" id="mobile-menu">
-      <a href="#studio">Le studio</a>
-      <a href="#projets">Projets</a>
-      <a href="#" id="contact-btn-mobile">Contact</a>
-    </div>
-
-    <div class="mobile-overlay" id="mobile-overlay"></div>
-    
 </header>
 
 <section class="hero">
     <div class="container">
         <h2>Un studio indépendant, créatif et passionné</h2>
         <p>FmecS développe des expériences interactives uniques, pensées avec soin et construites avec une architecture technique solide.</p>
-        <a class="cta" href="https://play.fmecs.fr/croix-de-malte/" target="_blank" rel="noopener noreferrer">
+        <a class="cta" href="https://play.fmecs.fr" target="_blank" rel="noopener noreferrer">
             Jouer au Morpion Solitaire
         </a>
     </div>
@@ -66,7 +55,7 @@
         <ul>
             <li>
               <strong>Morpion Solitaire</strong> – Jeu en ligne accessible sur 
-              <a href="https://play.fmecs.fr/croix-de-malte/" target="_blank" rel="noopener noreferrer">
+              <a href="https://play.fmecs.fr" target="_blank" rel="noopener noreferrer">
                 play.fmecs.fr
               </a>
             </li>
@@ -127,99 +116,41 @@
   const closeBtn = document.querySelector(".close");
   const form = document.querySelector(".contact-form");
   const successMsg = document.getElementById("form-success");
-  const burger = document.querySelector('.burger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileOverlay = document.getElementById('mobile-overlay');
-    
-    // Ouvrir le menu
-    burger.onclick = () => {
-        mobileMenu.style.display = "block";
-        mobileOverlay.style.display = "block";
-    
-        setTimeout(() => {
-            mobileMenu.style.right = "0";
-        }, 10);
-    };
-    
-    // Fermer le menu
-    function closeMobileMenu() {
-        mobileMenu.style.right = "-250px";
-        mobileOverlay.style.display = "none";
-    
-        setTimeout(() => {
-            mobileMenu.style.display = "none";
-        }, 300);
-    }
-    
-    // Clic sur overlay → fermer
-    mobileOverlay.onclick = closeMobileMenu;
-    
-    // Clic sur un lien → fermer
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
-// --- MODALE CONTACT ---
-const contactBtn = document.getElementById('contact-btn');
-const contactBtnMobile = document.getElementById('contact-btn-mobile');
-const contactModal = document.getElementById('contact-modal');
-const closeModal = document.querySelector('#contact-modal .close');
 
-// Fonction d'ouverture
-function openContactModal(e) {
+  // Ouvrir la modale
+  openBtn.onclick = () => {
+    modal.style.display = "block";
+    successMsg.style.display = "none"; // Cache le message
+    form.style.display = "block";      // Réaffiche le formulaire
+  };
+
+  // Fermer la modale
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+
+  // Envoi AJAX
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    contactModal.style.display = "block";
-}
-// Ouvrir la modale depuis le lien dans la section contact
-const openModalLink = document.getElementById('open-modal');
 
-if (openModalLink) {
-    openModalLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        contactModal.style.display = "block";
+    const data = new FormData(form);
+
+    const response = await fetch("https://formspree.io/f/mgoovrkz", {
+      method: "POST",
+      body: data,
+      headers: { "Accept": "application/json" }
     });
-}
 
-
-// Ouvrir depuis desktop
-if (contactBtn) {
-    contactBtn.addEventListener('click', openContactModal);
-}
-
-// Ouvrir depuis mobile
-if (contactBtnMobile) {
-    contactBtnMobile.addEventListener('click', () => {
-        closeMobileMenu(); // ferme le burger
-        setTimeout(() => contactModal.style.display = "block", 300);
-    });
-}
-
-// Fermer en cliquant sur la croix
-closeModal.addEventListener('click', () => {
-    contactModal.style.display = "none";
-});
-
-// Fermer en cliquant en dehors
-window.addEventListener('click', (e) => {
-    if (e.target === contactModal) {
-        contactModal.style.display = "none";
+    if (response.ok) {
+      form.reset();
+      form.style.display = "none";        // Cache le formulaire
+      successMsg.style.display = "block"; // Affiche le message
+    } else {
+      form.style.display = "none";
+      successMsg.innerText = "Une erreur est survenue. Merci de réessayer.";
+      successMsg.style.display = "block";
     }
-});
-
+  });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
