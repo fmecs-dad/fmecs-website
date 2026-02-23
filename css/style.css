@@ -24,6 +24,7 @@ header {
 .logo img {
     height: 72px;
     width: auto;
+    display: flex;
 }
 
 .nav a {
@@ -353,6 +354,7 @@ footer {
         resize: vertical;
     }
 }
+
 
 
 
