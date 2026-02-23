@@ -354,23 +354,22 @@ footer {
         resize: vertical;
     }
 }
-/* --- STYLE POUR LES LIENS DU FOOTER --- */
+footer,
+footer p,
+footer span,
 footer a,
-.footer-copyright a {
+.footer-copyright {
     color: white !important;
     text-decoration: none !important;
 }
 
 footer a:hover,
-.footer-copyright a:hover,
-footer a:visited,
-.footer-copyright a:visited,
-footer a:active,
-.footer-copyright a:active {
+.footer-copyright a:hover {
     color: white !important;
+    opacity: 0.9 !important;
     text-decoration: none !important;
-    opacity: 0.8; /* Optionnel : effet visuel léger au survol */
 }
+
 
 
 
