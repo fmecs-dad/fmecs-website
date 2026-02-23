@@ -11,6 +11,8 @@ body {
 /* --- HEADER --- */
 
 header {
+    position: sticky;
+    top: 0;
     background: #333;
     padding: 15px 50px;
     border-bottom: 1px solid #444;
@@ -351,4 +353,5 @@ footer {
         resize: vertical;
     }
 }
+
 
