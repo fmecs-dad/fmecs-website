@@ -47,10 +47,10 @@ header {
 }
 
 .hero h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 20px;
     color: #fedd94;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .hero p {
