@@ -171,52 +171,42 @@ footer {
   background: #e6b800;
 }
 
-/* Grille des jeux : compacte et centrée */
+/* Grille des jeux : deux cartes côte à côte */
 .games-grid {
     display: flex;
     justify-content: center; /* Centre les cartes */
-    gap: 30px; /* Espace entre les cartes */
-    flex-wrap: wrap; /* Retour à la ligne si nécessaire */
-    margin: 20px auto; /* Espace réduit autour de la grille */
-    max-width: 300px; /* Largeur max pour éviter l'étirement */
+    gap: 20px; /* Espace entre les cartes */
+    flex-wrap: nowrap; /* Empêche le retour à la ligne */
+    margin: 20px auto; /* Espace autour de la grille */
 }
 
-/* Cartes de jeu : hauteur et largeur minimales */
+/* Cartes de jeu : largeur et hauteur minimales */
 .game-card {
     background: white;
     border-radius: 10px;
-    padding: 10px; /* Espace réduit en haut et en bas */
-    width: auto; /* Largeur automatique (ajustée au contenu) */
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px; /* Espace réduit autour du contenu */
+    width: fit-content; /* Largeur ajustée au contenu */
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: auto; /* Hauteur ajustée au contenu */
-    min-height: 160px; /* Hauteur minimale (logo 96px + bouton + espaces) */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Logo : taille fixe et centré */
+/* Logo : taille fixe */
 .game-logo {
     width: 96px;
     height: 96px;
-    margin-bottom: 8px; /* Espace réduit sous le logo */
+    margin-bottom: 8px; /* Espace sous le logo */
 }
 
-/* Titre du jeu : compact */
-.game-card h4 {
-    font-size: 0.9rem;
-    margin: 8px 0; /* Espace réduit autour du titre */
-}
-
-/* Bouton : compact et centré (pas en pleine largeur) */
+/* Bouton : compact et centré */
 .play-button {
     background: #2a52be;
     color: white;
-    padding: 6px 12px; /* Bouton compact */
+    padding: 6px 12px;
     border-radius: 5px;
     text-decoration: none;
     font-size: 0.8rem;
-    margin-top: 8px; /* Espace réduit au-dessus du bouton */
-    width: auto; /* Largeur automatique (pas en pleine largeur) */
+    margin-top: 8px; /* Espace au-dessus du bouton */
+    width: fit-content; /* Largeur ajustée au texte */
 }
