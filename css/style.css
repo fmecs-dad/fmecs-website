@@ -11,17 +11,20 @@ body {
 /* --- HEADER --- */
 
 header {
+    position: fixed;
     background: #333333;
-    padding: 20px 60px;
+    padding: 10px 50px;
     border-bottom: 1px solid #444444;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .logo img {
-    height: 48px;
+    height: 72px;
     width: auto;
     display: block;
 }
