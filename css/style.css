@@ -171,56 +171,52 @@ footer {
   background: #e6b800;
 }
 
-/* Grille des jeux : limite la largeur et centre les cartes */
+/* Grille des jeux : compacte et centrée */
 .games-grid {
     display: flex;
-    justify-content: center; /* Centre les cartes horizontalement */
-    gap: 20px; /* Espace entre les cartes */
-    flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
-    max-width: 500px; /* Largeur maximale pour éviter que les cartes ne s'étirent */
-    margin: 0 auto; /* Centre la grille dans la page */
+    justify-content: center; /* Centre les cartes */
+    gap: 30px; /* Espace entre les cartes */
+    flex-wrap: wrap; /* Retour à la ligne si nécessaire */
+    margin: 20px auto; /* Espace réduit autour de la grille */
+    max-width: 300px; /* Largeur max pour éviter l'étirement */
 }
 
-/* Cartes de jeu : largeur et hauteur minimales */
+/* Cartes de jeu : hauteur et largeur minimales */
 .game-card {
     background: white;
     border-radius: 10px;
-    padding: 12px; /* Padding réduit */
-    width: 120px; /* Largeur fixe pour chaque carte (ajustable) */
+    padding: 10px; /* Espace réduit en haut et en bas */
+    width: auto; /* Largeur automatique (ajustée au contenu) */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: flex; /* Utilise flexbox pour organiser le contenu verticalement */
-    flex-direction: column; /* Contenu en colonne */
-    align-items: center; /* Centre horizontalement */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto; /* Hauteur ajustée au contenu */
+    min-height: 160px; /* Hauteur minimale (logo 96px + bouton + espaces) */
 }
 
-.game-card h4 {
-    font-size: 0.9rem; /* Texte plus petit */
-    margin: 8px 0; /* Marges réduites */
-}
-
-.game-card p {
-    font-size: 0.85rem; /* Texte plus petit */
-    margin-bottom: 8px; /* Espace réduit avant le bouton */
-}
-
-/* Logo des jeux : taille fixe */
+/* Logo : taille fixe et centré */
 .game-logo {
-    width: 96px; /* Largeur fixe */
-    height: 96px; /* Hauteur fixe */
+    width: 96px;
+    height: 96px;
     margin-bottom: 8px; /* Espace réduit sous le logo */
-    object-fit: contain; /* Garde les proportions du logo */
 }
 
-/* Bouton "Jouer" : compact */
+/* Titre du jeu : compact */
+.game-card h4 {
+    font-size: 0.9rem;
+    margin: 8px 0; /* Espace réduit autour du titre */
+}
+
+/* Bouton : compact et centré (pas en pleine largeur) */
 .play-button {
     background: #2a52be;
     color: white;
-    padding: 6px 12px; /* Padding réduit */
+    padding: 6px 12px; /* Bouton compact */
     border-radius: 5px;
     text-decoration: none;
-    display: inline-block;
-    font-size: 0.8rem; /* Texte plus petit */
-    margin-top: auto; /* Pousse le bouton vers le bas */
-    width: 100%; /* Bouton aussi large que la carte */
+    font-size: 0.8rem;
+    margin-top: 8px; /* Espace réduit au-dessus du bouton */
+    width: auto; /* Largeur automatique (pas en pleine largeur) */
 }
