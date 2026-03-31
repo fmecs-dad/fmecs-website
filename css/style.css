@@ -83,7 +83,7 @@ header {
 /* --- SECTIONS --- */
 
 .section {
-    padding: 80px 20px;
+    padding: 20px 20px;
 }
 
 .section.alt {
@@ -98,8 +98,9 @@ header {
 
 .container {
     width: 90%;
-    max-width: 700px;
-    margin: auto;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: auto;
 }
 
 /* --- FOOTER --- */
@@ -173,29 +174,41 @@ footer {
 .games-grid {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 15px;
+    margin-bottom: 15px;
     flex-wrap: wrap;
 }
 
 .game-card {
     background: white;
     border-radius: 10px;
-    padding: 20px;
-    width: 120px;
+    padding: 12px;
+    width: 2200px;
+    margin-bottom: 15px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.game-card h4 {
+    font-size: 1rem; /* Taille légèrement réduite */
+    margin-bottom: 6px; /* Espace réduit sous le titre */
+}
+
+.game-card p {
+    font-size: 0.85rem; /* Texte plus petit */
+    margin-bottom: 8px; /* Espace réduit avant le bouton */
+}
 .game-logo {
     width: 96px;
     height: 96px;
     margin: 0 auto 10px;
+    margin-bottom: 8px;
 }
 
 .play-button {
     background: #2a52be;
     color: white;
-    padding: 8px 16px;
+    padding: 5px 10px;
     border-radius: 5px;
     text-decoration: none;
     display: inline-block;
