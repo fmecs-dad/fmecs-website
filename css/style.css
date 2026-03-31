@@ -3,35 +3,35 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #fafafa;
-    color: #222;
+    background: #1a1a1a;
+    color: #f0f0f0;
     line-height: 1.6;
 }
 
 /* --- HEADER --- */
 
 header {
-    position: sticky;
-    top: 0;
-    background: #333;
-    padding: 10px 50px;
-    border-bottom: 1px solid #444;
+    background: #333333;
+    padding: 20px 60px;
+    border-bottom: 1px solid #444444;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo img {
-    height: 72px;
+    height: 48px;
     width: auto;
-    display: flex;
+    display: block;
 }
 
 .nav a {
-    margin-left: 30px;
+    margin-left: 40px;
     color: #f0f0f0;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    transition: color 0.2s ease;
 }
 
 .nav a:hover {
@@ -42,51 +42,55 @@ header {
 
 .hero {
     text-align: center;
-    padding: 80px 20px;
-    background: #f2f2f2;
-    border-bottom: 1px solid #e5e5e5;
+    padding: 140px 20px;
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
 }
 
 .hero h2 {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #fedd94;
+    font-weight: 700;
 }
 
 .hero p {
-    font-size: 1.1rem;
-    max-width: 650px;
-    margin: 0 auto 20px;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #e0e0e0;
 }
 
 .cta {
     display: inline-block;
-    padding: 10px 22px;
-    background: #fedd94;
-    color: #222;
+    margin-top: 20px;
+    padding: 14px 32px;
+    background: #ffcc00;
+    color: #000;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 6px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    transition: background 0.2s ease;
 }
 
 .cta:hover {
-    background: #e6c87a;
+    background: #e6b800;
 }
 
 /* --- SECTIONS --- */
 
 .section {
-    padding: 50px 20px;
-    border-bottom: 1px solid #e5e5e5;
+    padding: 80px 20px;
 }
 
 .section.alt {
-    background: #f2f2f2;
+    background: #2a2a2a;
 }
 
 .section h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fedd94;
 }
 
 .container {
@@ -99,10 +103,10 @@ header {
 
 footer {
     text-align: center;
-    padding: 20px;
-    background: #333;
+    padding: 25px;
+    background: #333333;
+    border-top: 1px solid #444444;
     color: #ccc;
-    border-top: 1px solid #444;
 }
 
 /* --- MODALE CONTACT --- */
@@ -119,259 +123,78 @@ footer {
 }
 
 .modal-content {
-  background: #fafafa;
+  background: #333333;
   margin: 10% auto;
   padding: 25px;
   border-radius: 8px;
   width: 90%;
   max-width: 400px;
-  color: #222;
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  color: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 .close {
   float: right;
   font-size: 24px;
   cursor: pointer;
-  color: #222;
-}
-
-.contact-form label {
-  font-weight: 600;
-  margin-top: 10px;
-  display: block;
+  color: #fff;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  background: #fff;
-  border: 1px solid #ddd;
-  color: #222;
+  padding: 12px;
+  margin-top: 10px;
+  background: #222;
+  border: 1px solid #444;
+  color: #fff;
   border-radius: 5px;
-  font-size: 1rem;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #fedd94;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(254,221,148,0.4);
 }
 
 .contact-form button {
   margin-top: 15px;
   padding: 12px;
   width: 100%;
-  background: #fedd94;
-  color: #222;
+  background: #ffcc00;
+  color: #000;
   border: none;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 1rem;
 }
 
 .contact-form button:hover {
-  background: #e6c87a;
+  background: #e6b800;
 }
 
-/* --- VERSION MOBILE --- */
-@media (max-width: 768px) {
-
-    /* Header */
-    header {
-        padding: 12px 20px;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .nav a {
-        margin-left: 0;
-        margin-right: 15px;
-        font-size: 0.95rem;
-    }
-
-    .nav {
-        display: flex;
-        gap: 15px;
-    }
-
-    /* Hero */
-    .hero {
-        padding: 60px 20px;
-    }
-
-    .hero h2 {
-        font-size: 1.8rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-        margin-bottom: 20px;
-    }
-
-    .cta {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-
-    /* Sections */
-    .section {
-        padding: 40px 20px;
-    }
-
-    .section h3 {
-        font-size: 1.5rem;
-    }
-
-    /* Container */
-    .container {
-        width: 92%;
-    }
-
-    /* Modale */
-    .modal-content {
-        width: 92%;
-        margin-top: 30%;
-        padding: 20px;
-    }
+.games-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-/* --- BURGER MENU --- */
-
-.burger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
+.game-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.burger span {
-    width: 25px;
-    height: 3px;
-    background: #f0f0f0;
-    border-radius: 3px;
+.game-logo {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
 }
 
-/* Menu mobile caché */
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 220px;
-    height: 100%;
-    background: #333;
-    padding: 60px 20px;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.3);
-    transition: right 0.3s ease;
-    z-index: 2000;
-}
-
-.mobile-menu a {
-    display: block;
-    margin-bottom: 20px;
-    color: #f0f0f0;
+.play-button {
+    background: #2a52be;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
     text-decoration: none;
-    font-size: 1.1rem;
+    display: inline-block;
+    margin-top: 10px;
 }
-
-.mobile-menu a:hover {
-    color: #fedd94;
-}
-
-/* Overlay derrière le menu mobile */
-.mobile-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    z-index: 1500;
-}
-
-/* --- VERSION MOBILE --- */
-@media (max-width: 768px) {
-
-    /* Afficher le burger */
-    .burger {
-        display: flex;
-    }
-
-    /* Cacher le menu desktop */
-    .nav {
-        display: none;
-    }
-
-    /* Ajuster le header */
-    header {
-        padding: 12px 20px;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Modale responsive */
-    .modal-content {
-        width: 90%;
-        max-width: 90%;
-        margin: 30% auto;
-        padding: 15px;
-        border-radius: 6px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        width: 100%;
-        font-size: 1rem;
-        padding: 10px;
-    }
-
-    .contact-form button {
-        padding: 12px;
-        font-size: 1rem;
-    }
-    
-    /* Zones de saisie parfaitement responsives */
-    .contact-form input,
-    .contact-form textarea {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        padding: 12px;
-        font-size: 1rem;
-        margin-top: 8px;
-    }
-
-    /* Pour éviter que le textarea déborde */
-    .contact-form textarea {
-        resize: vertical;
-    }
-}
-footer,
-footer p,
-footer span,
-footer a,
-.footer-copyright {
-    color: white !important;
-    text-decoration: none !important;
-}
-
-footer a:hover,
-.footer-copyright a:hover {
-    color: white !important;
-    opacity: 0.9 !important;
-    text-decoration: none !important;
-}
-
-
-
-
-
-
