@@ -112,6 +112,12 @@
   const closeBtn = document.querySelector(".close");
   const form = document.querySelector(".contact-form");
   const successMsg = document.getElementById("form-success");
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('nav-menu');
+
+  burger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
 
   // Ouvrir la modale
   openBtn.onclick = () => {
