@@ -17,17 +17,14 @@
 
 <header>
     <div class="logo">
-        <img src="/img/logo-fmecs.png">
+      <img src="/img/logo-fmecs.png">
     </div>
-    <div class="burger" id="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <nav class="nav" id="nav-menu">
-        <a href="https://twitter.com/tonsite" target="_blank">Twitter</a>
-        <a href="https://instagram.com/tonsite" target="_blank">Instagram</a>
-        <a href="https://github.com/tonsite" target="_blank">GitHub</a>
+
+
+    <nav class="nav">
+        <a href="#studio">Le studio</a>
+        <a href="#jeux">Jeux</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
@@ -104,12 +101,6 @@
   const closeBtn = document.querySelector(".close");
   const form = document.querySelector(".contact-form");
   const successMsg = document.getElementById("form-success");
-  const burger = document.getElementById('burger');
-  const navMenu = document.getElementById('nav-menu');
- 
-  burger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
 
   // Ouvrir la modale
   openBtn.onclick = () => {
