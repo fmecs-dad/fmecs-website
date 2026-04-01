@@ -112,6 +112,8 @@ a {
 /* Liens en blanc même après clic */
 a:visited {
     color: #f0f0f0; /* Blanc */
+    text-decoration: none;
+    outline: none;
 }
 
 /* Supprime les effets de survol/clic */
@@ -119,7 +121,7 @@ a:hover, a:active, a:focus {
     color: #f0f0f0; /* Blanc */
     text-decoration: none;
     outline: none;
-}
+}																																																																																																																																																																																																																																																																												
 
 /* --- FOOTER --- */
 
