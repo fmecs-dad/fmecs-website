@@ -29,7 +29,7 @@ header {
 }
 
 .nav a {
-    margin-left: 40px;
+    margin-left: 20px;
     color: #f0f0f0;
     text-decoration: none;
     font-size: 1rem;
@@ -106,7 +106,7 @@ header {
 /* Liens en blanc par défaut */
 a {
     color: #f0f0f0; /* Blanc */
-    text-decoration: none;
+    text-decoration: none;															
 }
 
 /* Liens en blanc même après clic */
@@ -121,16 +121,33 @@ a:hover, a:active, a:focus {
     color: #f0f0f0; /* Blanc */
     text-decoration: none;
     outline: none;
-}																																																																																																																																																																																																																																																																												
-
+}																
 /* --- FOOTER --- */
 
 footer {
     text-align: center;
-    padding: 25px;
+    padding: 15px; /* Réduit de 25px à 15px */
     background: #333333;
     border-top: 1px solid #444444;
     color: #ccc;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+footer p {
+    white-space: nowrap; /* Empêche le retour à la ligne */
+    overflow: hidden;   /* Cache le débordement (si nécessaire) */
+    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est trop long */
+}
+
+@media (max-width: 768px) {
+    footer {
+        font-size: 0.8rem; /* Texte encore plus petit sur mobile */
+    }
 }
 
 /* --- MODALE CONTACT --- */
