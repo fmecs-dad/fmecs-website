@@ -29,37 +29,37 @@ header {
 }
 
 .nav a {
-    margin-left: 20px;
+    margin-left: 40px;
     color: #f0f0f0;
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.2s ease;
-    margin: 10px 0;
 }
 
 .nav a:hover {
-    /*color: #fedd94;:*x²
-    color: #fedd94;	
+    color: #fedd94;
 }
 
 /* --- HERO --- */
 
 .hero {
     text-align: center;
-    padding: 60px 20px; /* Réduit de 140px à 60px */
+    padding: 140px 20px;
     background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
 }
 
 .hero h2 {
     font-size: 2rem;
-    margin-bottom: 15px; /* Réduit l'espace sous le titre */
+    margin-bottom: 20px;
     color: #fedd94;
+    font-weight: 500;
 }
 
 .hero p {
-    font-size: 1rem; /* Réduit la taille du texte */
-    max-width: 800px;
-    margin: 0 auto 20px; /* Réduit l'espace sous le paragraphe */
+    font-size: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    color: #e0e0e0;
 }
 
 .cta {
@@ -101,22 +101,6 @@ header {
     margin: 0 auto;
     min-height: auto;
 }
-
-/* Liens en blanc par défaut */
-a {
-    color: #f0f0f0; /* Blanc */
-    text-decoration: none;
-}
-
-/* Liens en blanc même après clic */
-a:visited {
-    color: #f0f0f0; /* Blanc */
-}
-
-/* Supprime le surlignage au clic */
-a:active, a:focus {
-    color: #f0f0f0;
- 
 
 /* --- FOOTER --- */
 
