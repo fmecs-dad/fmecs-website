@@ -28,6 +28,67 @@ header {
     display: block;
 }
 
+/* Bouton burger (masqué sur desktop) */
+.burger {
+    display: none; /* Masqué par défaut */
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: auto; /* Aligne à droite */
+}
+
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: #f0f0f0;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* Menu navigation (visible sur desktop) */
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* Icônes des réseaux sociaux */
+.social-link {
+    color: #f0f0f0;
+    font-size: 1.5rem; /* Taille des icônes */
+    transition: color 0.2s ease;
+}
+
+.social-link:hover {
+    color: #fedd94; /* Couleur au survol */
+}
+
+/* --- VERSION MOBILE --- */
+@media (max-width: 768px) {
+    /* Affiche le burger sur mobile */
+    .burger {
+        display: flex;
+    }
+
+    /* Masque le menu normal sur mobile */
+    .nav {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #333;
+        flex-direction: row; /* Icônes en ligne */
+        justify-content: center;
+        padding: 20px 0;
+        z-index: 1000;
+    }
+
+    /* Affiche le menu quand le burger est cliqué */
+    .nav.active {
+        display: flex;
+    }
+}
+
 .nav a {
     margin-left: 20px;
     color: #f0f0f0;
