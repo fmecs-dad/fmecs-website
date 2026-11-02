@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ybial Casse-têtes – la croix du charpentier en 3D</title>
+<meta name="description" content="Ybial Casse-têtes : assemblez en 3D les six pièces de bois de la croix du charpentier, directement dans le navigateur. Règles, commandes et astuces. Un jeu FmecS.">
+<meta name="theme-color" content="#f5ead8">
+<!-- partage:début -->
+<link rel="canonical" href="https://www.fmecs.fr/casse-tetes-info.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FmecS · jeux Ybial">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.fmecs.fr/casse-tetes-info.html">
+<meta property="og:title" content="Ybial Casse-têtes – la croix du charpentier en 3D">
+<meta property="og:description" content="Ybial Casse-têtes : assemblez en 3D les six pièces de bois de la croix du charpentier, directement dans le navigateur. Règles, commandes et astuces. Un jeu FmecS.">
+<meta property="og:image" content="https://www.fmecs.fr/img/apercu-partage.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FmecS, des jeux de réflexion : Croix de Malte, Togglr et Ybial Casse-têtes">
+<meta name="twitter:card" content="summary_large_image">
+<!-- partage:fin -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<style>
+@font-face { font-family: 'Nunito'; font-style: normal; font-weight: 500 800; font-display: swap; src: url(fonts/nunito-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Caprasimo'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/caprasimo-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Caprasimo'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/caprasimo-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/figtree-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/figtree-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+/* Charte « Organic » — mêmes tokens que index.html */
+:root {
+  --color-bg: #f5ead8;
+  --color-surface: #ebddc5;
+  --color-text: #201e1d;
+  --color-accent: #c67139;
+  --color-neutral-100: #f9f4ed;
+  --color-neutral-700: #645c50;
+  --color-neutral-800: #474238;
+  --color-accent-100: #fff2eb;
+  --color-accent-500: #d67f48;
+  --color-accent-700: #8c491a;
+  --color-accent-800: #643312;
+  --color-accent-2-100: #f0fae1;
+  --color-accent-2-800: #3d472b;
+  --font-heading: "Caprasimo", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+  --font-logo: "Nunito", system-ui, sans-serif;
+  --gutter: clamp(20px, 5.6vw, 72px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%; }
+h1, h2 { font-family: var(--font-heading); font-weight: 400; line-height: 1.1; letter-spacing: -0.015em; margin: 0; }
+p, ul { margin: 0; }
+a { color: var(--color-accent-700); text-underline-offset: 3px; }
+a:hover { color: var(--color-accent-800); }
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--color-accent-700); outline-offset: 3px; border-radius: 4px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 10; background: var(--color-text); color: var(--color-bg); padding: 10px 16px; border-radius: 999px; text-decoration: none; }
+.skip-link:focus { top: 12px; color: var(--color-bg); }
+
+/* logo — identique à index.html */
+.logo { flex: none; width: 1em; height: 1em; border-radius: .18em; background: var(--color-accent); display: inline-flex; align-items: center; justify-content: center; }
+.logo-stack { display: flex; flex-direction: column; gap: .055em; }
+.logo-dots { display: flex; justify-content: space-between; padding-left: .0128em; padding-right: .0203em; }
+.logo-dots span { width: .095em; height: .095em; border-radius: 50%; background: var(--color-bg); }
+.logo-dots span.on { background: var(--color-accent-2-800); }
+.logo-word { font-family: var(--font-logo); font-weight: 650; font-size: .22em; letter-spacing: -.01em; line-height: .9; color: var(--color-text); white-space: nowrap; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 28px; border-radius: 999px; font-family: var(--font-heading); font-size: 17px; line-height: 1.2; text-decoration: none; }
+/* texte foncé sur terracotta (contraste 4,6:1), comme sur l'accueil */
+.btn-primary, .btn-primary:hover { background: var(--color-accent); color: var(--color-text); }
+.btn-primary:hover { background: var(--color-accent-500); }
+
+.page { max-width: 1280px; margin: 0 auto; }
+.nav { display: flex; align-items: center; gap: 24px; padding: clamp(16px, 2.2vw, 28px) var(--gutter); }
+.nav-brand { display: flex; text-decoration: none; font-size: clamp(64px, 5.6vw, 72px); border-radius: .18em; }
+.nav-back { margin-left: auto; display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; color: var(--color-text); font-weight: 600; font-size: 15px; text-decoration: none; }
+.nav-back:hover { color: var(--color-accent-700); }
+
+.info { max-width: 760px; padding: clamp(24px, 4vw, 48px) var(--gutter) clamp(48px, 7vw, 88px); display: flex; flex-direction: column; gap: 28px; }
+.intro { display: flex; flex-direction: column; gap: 16px; }
+.intro-title { display: flex; align-items: center; gap: 16px; }
+.intro-title img { flex: none; width: clamp(52px, 6vw, 64px); height: auto; }
+.tag { align-self: flex-start; display: inline-flex; padding: 3px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.info h1 { font-size: clamp(36px, 5vw, 56px); }
+.kicker { font-weight: 600; color: var(--color-accent-700); }
+.lead { font-size: clamp(16px, 1.5vw, 18px); color: var(--color-neutral-800); text-wrap: pretty; }
+.info section { display: flex; flex-direction: column; gap: 10px; padding: 24px clamp(20px, 3vw, 32px); background: var(--color-surface); border-radius: 28px; }
+.info h2 { font-size: clamp(22px, 2.4vw, 26px); }
+.info section p, .info li { color: var(--color-neutral-800); }
+.info ul { padding-left: 1.2em; display: flex; flex-direction: column; gap: 6px; }
+.levels { list-style: none; padding: 0 !important; flex-direction: row !important; flex-wrap: wrap; gap: 10px !important; }
+.levels li { padding: 8px 16px; border-radius: 999px; background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.levels strong { color: var(--color-accent-800); }
+
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: clamp(20px, 2.2vw, 28px) var(--gutter); font-size: 14px; color: var(--color-neutral-700); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<div class="page">
+  <header>
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav-brand" href="./" aria-label="FmecS, accueil">
+        <span class="logo" aria-hidden="true"><span class="logo-stack">
+          <span class="logo-dots"><span></span><span></span><span></span><span></span><span class="on"></span></span>
+          <span class="logo-word">FmecS</span>
+        </span></span>
+      </a>
+      <a class="nav-back" href="./#jeux">← Tous les jeux</a>
+    </nav>
+  </header>
+
+  <main id="contenu" class="info">
+    <div class="intro">
+      <span class="tag">Jeux Ybial · ordinateur et tablette</span>
+      <div class="intro-title"><img src="img/casse-tetes.svg" width="64" height="64" alt=""><h1>Ybial Casse-têtes</h1></div>
+      <p class="kicker">Premier puzzle&nbsp;: la croix du charpentier</p>
+      <p class="lead">Des casse-têtes en bois, en 3D, dans votre navigateur. Le premier est un grand classique&nbsp;: six barres de hêtre entaillées qui se croisent sur trois axes pour former une croix. Cinq s’emboîtent, la sixième, la clé, verrouille l’ensemble.</p>
+      <p><a class="btn btn-primary" href="https://play.fmecs.fr/casse-tetes" target="_blank" rel="noopener">Jouer<span class="visually-hidden"> à Ybial Casse-têtes (nouvel onglet)</span></a></p>
+    </div>
+
+    <section aria-labelledby="t-regles">
+      <h2 id="t-regles">Règles du jeu</h2>
+      <ul>
+        <li>Le but&nbsp;: assembler les <strong>six pièces</strong> pour former la croix, au-dessus du plateau.</li>
+        <li>Les pièces se déplacent cran par cran et se tournent d’un quart de tour&nbsp;; elles ne peuvent jamais se traverser.</li>
+        <li>Chaque pièce porte une marque gravée à ses deux bouts&nbsp;: une rune pour les pièces 1 à 5, une croix de Malte pour la clé.</li>
+        <li>Un déplacement ou un quart de tour compte <strong>1 coup</strong>&nbsp;; le chrono démarre au premier coup.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="t-commandes">
+      <h2 id="t-commandes">Les commandes</h2>
+      <ul>
+        <li>Cliquez sur une pièce pour la prendre en main, puis faites glisser ses poignées pour la déplacer.</li>
+        <li>Les boutons X, Y et Z la font tourner autour de chaque axe&nbsp;; un double-clic la range à sa place de départ.</li>
+        <li>Faites glisser dans le vide pour tourner la vue, la molette ou le pincement pour zoomer.</li>
+        <li>Au clavier&nbsp;: les flèches pour glisser, X, Y, Z pour tourner, Ctrl+Z pour annuler.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="t-astuces">
+      <h2 id="t-astuces">Astuces</h2>
+      <ul>
+        <li>La clé se pose en dernier&nbsp;: gardez-lui un passage libre jusqu’au bout.</li>
+        <li>Ce puzzle n’a qu’une seule solution&nbsp;: si une pièce bloque, c’est souvent l’ordre qu’il faut revoir.</li>
+        <li>Besoin d’un coup de pouce&nbsp;? L’aide visuelle (l’œil) colore les marques en jaune quand deux pièces se touchent, en vert quand elles sont bien emboîtées.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="t-apropos">
+      <h2 id="t-apropos">À propos</h2>
+      <p>Je suis Sébastien, développeur indépendant passionné par les jeux de réflexion. Ybial Casse-têtes est gratuit, sans inscription, et d’autres puzzles sont en préparation.</p>
+    </section>
+
+    <section aria-labelledby="t-contact">
+      <h2 id="t-contact">Contact</h2>
+      <p>Pour toute suggestion&nbsp;: <a href="mailto:contact@fmecs.fr">contact@fmecs.fr</a>, ou le <a href="./#contact">formulaire de contact</a>.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Ybial — Tous droits réservés</span>
+    <a href="mentionslegales.html">Mentions légales</a>
+  </footer>
+</div>
+</body>
+</html>

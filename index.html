@@ -6,6 +6,20 @@
 <title>FmecS — Studio de développement indépendant · jeux Ybial</title>
 <meta name="description" content="FmecS est le studio indépendant de la marque Ybial : Croix de Malte (morpion solitaire), Togglr et Ybial Casse-têtes, des jeux de réflexion intelligents, accessibles et gratuits, à jouer dans le navigateur.">
 <meta name="theme-color" content="#f5ead8">
+<!-- partage:début -->
+<link rel="canonical" href="https://www.fmecs.fr/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FmecS · jeux Ybial">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.fmecs.fr/">
+<meta property="og:title" content="FmecS — Studio de développement indépendant · jeux Ybial">
+<meta property="og:description" content="FmecS est le studio indépendant de la marque Ybial : Croix de Malte (morpion solitaire), Togglr et Ybial Casse-têtes, des jeux de réflexion intelligents, accessibles et gratuits, à jouer dans le navigateur.">
+<meta property="og:image" content="https://www.fmecs.fr/img/apercu-partage.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FmecS, des jeux de réflexion : Croix de Malte, Togglr et Ybial Casse-têtes">
+<meta name="twitter:card" content="summary_large_image">
+<!-- partage:fin -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
@@ -152,6 +166,8 @@ a:hover { color: var(--color-accent-800); }
 .game-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .game h3 { font-size: clamp(26px, 2.3vw, 30px); }
 .game-kicker { font-size: 14px; font-weight: 600; color: var(--color-accent-700); }
+.game-body .game-more { font-size: 15px; font-weight: 600; }
+.game-more a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-accent-700); }
 .btn-soon { background: var(--color-neutral-200); color: var(--color-neutral-700); cursor: default; }
 .game-title { display: flex; align-items: center; gap: 12px; }
 .game-title img { flex: none; width: 48px; height: 48px; border-radius: 12px; }
@@ -297,6 +313,7 @@ textarea.input:focus-visible { border-radius: 24px; }
           <div class="game-title"><img src="img/logo-morpion.png" width="48" height="48" alt=""><h3 id="titre-morpion">Croix de Malte</h3></div>
           <p class="game-kicker">Le morpion solitaire</p>
           <p>Partez de la croix de 36 points et tracez le plus de lignes de cinq points possible. Chaque point posé ouvre ou ferme des possibilités.</p>
+          <p class="game-more"><a href="croix-de-malte-info.html">Règles et astuces<span class="visually-hidden"> de Croix de Malte</span></a></p>
           <div class="game-cta">
             <a class="btn btn-primary" href="https://play.fmecs.fr/croix-de-malte" target="_blank" rel="noopener">Jouer<span class="visually-hidden"> à Croix de Malte, le morpion solitaire (nouvel onglet)</span></a>
             <span class="game-cta-note">Sans limite de temps</span>
@@ -317,6 +334,7 @@ textarea.input:focus-visible { border-radius: 24px; }
           <div class="game-tags"><span class="tag tag-neutral">Pensé pour mobile</span><span class="tag tag-togglr">Un défi par jour</span></div>
           <div class="game-title"><img src="img/logo-togglr.png" width="48" height="48" alt=""><h3 id="titre-togglr">Togglr</h3></div>
           <p>Touchez un point&nbsp;: il s’inverse, ses quatre voisins aussi. Retrouvez la forme du jour en un minimum de coups.</p>
+          <p class="game-more"><a href="togglr-info.html">Règles et astuces<span class="visually-hidden"> de Togglr</span></a></p>
           <div class="game-cta">
             <a class="btn btn-primary" href="https://play.fmecs.fr/togglr/defidujour" target="_blank" rel="noopener">Jouer au défi du jour<span class="visually-hidden"> de Togglr (nouvel onglet)</span></a>
           </div>
@@ -333,6 +351,7 @@ textarea.input:focus-visible { border-radius: 24px; }
           <div class="game-title"><img src="img/casse-tetes.svg" width="48" height="48" alt=""><h3 id="titre-casse-tetes">Casse-têtes</h3></div>
           <p class="game-kicker">Premier puzzle&nbsp;: la croix du charpentier</p>
           <p>Six pièces de bois entaillées à emboîter pour reformer la croix. Trouvez le bon ordre&nbsp;: la dernière pièce, la clé, verrouille l’ensemble.</p>
+          <p class="game-more"><a href="casse-tetes-info.html">Règles et astuces<span class="visually-hidden"> d’Ybial Casse-têtes</span></a></p>
           <div class="game-cta">
             <!-- Bouton selon le nombre de puzzles publiés :
                  0 → <span class="btn btn-soon">Bientôt disponible</span> ;
