@@ -1,159 +1,586 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FmecS – Studio de développement indépendant</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="stylesheet" href="/css/all.min.css">
-    <!script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3592273084085271"
-     crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FmecS — Studio de développement indépendant · jeux Ybial</title>
+<meta name="description" content="FmecS est le studio indépendant de la marque Ybial : Croix de Malte (morpion solitaire), Togglr et Ybial Casse-têtes, des jeux de réflexion intelligents, accessibles et gratuits, à jouer dans le navigateur.">
+<meta name="theme-color" content="#f5ead8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/caprasimo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Polices — extraites de la maquette Accueil.html (sous-ensembles latin et latin-ext) */
+@font-face { font-family: 'Nunito'; font-style: normal; font-weight: 500 800; font-display: swap; src: url(fonts/nunito-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Nunito'; font-style: normal; font-weight: 500 800; font-display: swap; src: url(fonts/nunito-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Caprasimo'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/caprasimo-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Caprasimo'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/caprasimo-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/figtree-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/figtree-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* Charte « Organic » — tokens repris de la maquette */
+:root {
+  --color-bg: #f5ead8;
+  --color-surface: #ebddc5;
+  --color-text: #201e1d;
+  --color-accent: #c67139;
+  --color-accent-2: #7a8a5e;
+  --color-divider: color-mix(in srgb, #201e1d 16%, transparent);
+
+  --color-neutral-100: #f9f4ed;
+  --color-neutral-200: #eee7db;
+  --color-neutral-300: #dcd3c4;
+  --color-neutral-400: #c0b6a5;
+  --color-neutral-700: #645c50;
+  --color-neutral-800: #474238;
+  --color-neutral-900: #2e2b25;
+
+  --color-accent-100: #fff2eb;
+  --color-accent-200: #ffe1d0;
+  --color-accent-300: #ffc6a5;
+  --color-accent-400: #f6a06b;
+  --color-accent-500: #d67f48;
+  --color-accent-600: #b2622d;
+  --color-accent-700: #8c491a;
+  --color-accent-800: #643312;
+
+  --color-accent-2-100: #f0fae1;
+  --color-accent-2-300: #ccdbb2;
+  --color-accent-2-700: #56633f;
+  --color-accent-2-800: #3d472b;
+
+  --togglr-bg: #22307a; /* bleu foncé : texte du tag « Un défi par jour » */
+  --togglr-board: #adadad; /* gris du plateau sur play.fmecs.fr/togglr */
+  --togglr-off: #506efa;
+  --togglr-tint: #e4e9ff;
+  --togglr-ring: #f2c35b;
+
+  --font-heading: "Caprasimo", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+  --font-logo: "Nunito", system-ui, sans-serif;
+
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2e2b25 16%, transparent);
+
+  --gutter: clamp(20px, 5.6vw, 72px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--color-bg); color: var(--color-text);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.05; letter-spacing: -0.015em; margin: 0; }
+p { margin: 0; }
+a { color: var(--color-accent-700); text-underline-offset: 3px; }
+a:hover { color: var(--color-accent-800); }
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--color-accent-700); outline-offset: 3px; border-radius: 4px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 10;
+  background: var(--color-text); color: var(--color-bg); padding: 10px 16px; border-radius: 999px; text-decoration: none;
+}
+.skip-link:focus { top: 12px; color: var(--color-bg); }
+
+/* — logo : proportions de l'ancien logo carré (marges larges, gros points), habillage de la charte — */
+.logo {
+  flex: none; width: 1em; height: 1em; border-radius: .18em;
+  background: var(--color-accent);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.logo-stack { display: flex; flex-direction: column; gap: .055em; }
+.logo-dots { display: flex; justify-content: space-between; padding-left: .0128em; padding-right: .0203em; } /* centre le 1er point sur F, le 5e sur S (Nunito 650) */
+.logo-dots span { width: .095em; height: .095em; border-radius: 50%; background: var(--color-bg); }
+.logo-dots span.on { background: var(--color-accent-2-800); } /* vert olive du tag « Studio FmecS · jeux Ybial » */
+.logo-word {
+  font-family: var(--font-logo); font-weight: 650; font-size: .22em;
+  letter-spacing: -.01em; line-height: .9; color: var(--color-text); white-space: nowrap;
+}
+
+/* — composants de la charte — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 48px; padding: 12px 28px; border: 1px solid transparent; border-radius: 999px;
+  font-family: var(--font-heading); font-size: 17px; line-height: 1.2; text-decoration: none; cursor: pointer;
+}
+/* texte foncé sur terracotta (contraste 4,6:1), comme les lettres du logo */
+.btn-primary, .btn-primary:hover { background: var(--color-accent); color: var(--color-text); }
+.btn-primary:hover { background: var(--color-accent-500); }
+.btn-primary:active { background: var(--color-accent-300); }
+.btn:disabled { opacity: .5; cursor: progress; }
+
+.tag {
+  display: inline-flex; align-items: center; align-self: flex-start;
+  padding: 3px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: .02em;
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
+.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-togglr { background: var(--togglr-tint); color: var(--togglr-bg); }
+
+/* — mise en page — */
+.page { position: relative; overflow: hidden; max-width: 1280px; margin: 0 auto; }
+.blob { position: absolute; border-radius: 50%; pointer-events: none; }
+.blob-1 { width: clamp(260px, 40vw, 520px); aspect-ratio: 1; background: var(--color-accent-200); right: clamp(-140px, -10vw, -110px); top: clamp(-220px, -17vw, -110px); }
+.blob-2 { width: 180px; aspect-ratio: 1; background: var(--color-accent-2-300); right: 300px; top: 150px; }
+
+.nav { position: relative; display: flex; align-items: center; gap: clamp(16px, 3vw, 36px); padding: clamp(16px, 2.2vw, 28px) var(--gutter); }
+.nav-brand { display: flex; color: var(--color-text); text-decoration: none; font-size: clamp(64px, 5.6vw, 72px); border-radius: .18em; }
+.nav-links { margin-left: auto; display: flex; gap: clamp(8px, 2.2vw, 28px); }
+.nav-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; color: var(--color-text); text-decoration: none; font-weight: 600; font-size: 15px; }
+.nav-links a:hover { color: var(--color-accent-700); }
+
+.hero { position: relative; display: flex; flex-direction: column; gap: clamp(14px, 1.8vw, 22px); max-width: 820px; padding: clamp(32px, 5.6vw, 72px) var(--gutter) clamp(36px, 6.9vw, 88px); }
+.hero h1 { font-size: clamp(42px, 6vw, 76px); line-height: 1.02; text-wrap: balance; }
+.hero p { font-size: clamp(16px, 1.5vw, 19px); color: var(--color-neutral-800); max-width: 560px; text-wrap: pretty; }
+
+.games { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.5vw, 32px); padding: 0 var(--gutter) clamp(28px, 7.5vw, 96px); }
+.game { background: var(--color-surface); border-radius: clamp(30px, 2.8vw, 36px); padding: clamp(12px, 1.6vw, 20px) clamp(12px, 1.6vw, 20px) clamp(24px, 2.5vw, 32px); display: flex; flex-direction: column; gap: clamp(18px, 1.7vw, 22px); }
+.game-thumb { position: relative; aspect-ratio: 4 / 3; border-radius: clamp(22px, 2.2vw, 28px); display: grid; place-items: center; padding-bottom: 26px; } /* place réservée au libellé */
+.game-thumb-label { position: absolute; left: 20px; bottom: 16px; font-size: 13px; font-weight: 700; }
+.game-body { padding: 0 clamp(10px, 1.25vw, 16px); display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.game-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.game h3 { font-size: clamp(26px, 2.3vw, 30px); }
+.game-kicker { font-size: 14px; font-weight: 600; color: var(--color-accent-700); }
+.btn-soon { background: var(--color-neutral-200); color: var(--color-neutral-700); cursor: default; }
+.game-title { display: flex; align-items: center; gap: 12px; }
+.game-title img { flex: none; width: 48px; height: 48px; border-radius: 12px; }
+.game-body p { font-size: clamp(15px, 1.25vw, 16px); color: var(--color-neutral-800); text-wrap: pretty; }
+.game-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: auto; padding-top: 8px; }
+.game-cta-note { font-size: 14px; color: var(--color-neutral-700); }
+.game-desktop-only { display: none; gap: 12px; align-items: center; margin-top: 6px; padding: 12px 14px; border-radius: 20px; background: var(--color-bg); font-size: 14px; color: var(--color-neutral-800); }
+.game-desktop-only svg { flex: none; }
+
+/* vignette Croix de Malte (morpion solitaire) */
+.mp-thumb { background: var(--color-neutral-100); }
+.mp-thumb svg { width: 56%; height: auto; overflow: visible; }
+.mp-thumb .lattice { fill: var(--color-neutral-300); }
+.mp-thumb .pt { fill: var(--color-neutral-900); transition: fill .4s; }
+.mp-thumb .ln { stroke: var(--color-accent-300); stroke-width: .15; stroke-linecap: round; transition: stroke .4s; }
+.mp-thumb .pt.last { fill: var(--color-accent); }
+.mp-thumb .ln.last { stroke: var(--color-accent); }
+.mp-thumb .game-thumb-label { color: var(--color-neutral-800); }
+
+/* vignette Togglr */
+.tg-thumb { background: var(--togglr-board); }
+.tg-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(10px, 1.1vw, 14px); width: min(250px, 54%); }
+.tg-grid span { aspect-ratio: 1; border-radius: 50%; background: var(--togglr-off); transition: background .35s, transform .25s, box-shadow .25s; }
+.tg-grid span.on { background: #fff; }
+.tg-grid span.pressed { transform: scale(.82); box-shadow: 0 0 0 4px var(--togglr-ring); }
+.tg-thumb .game-thumb-label { color: var(--color-text); }
+
+/* vignette Casse-têtes : la croix du charpentier s'assemble pièce par pièce, la clé (dernière) en terracotta */
+.cs-thumb { background: var(--color-accent-2-800); overflow: hidden; }
+.cs-thumb svg { width: 58%; height: auto; }
+.cs-thumb polygon { stroke-width: .1; stroke-linejoin: round; } /* le trait couvre les jointures entre cubes */
+.cs-thumb .a0 { fill: var(--color-accent-200); stroke: var(--color-accent-200); }
+.cs-thumb .a1 { fill: var(--color-accent-300); stroke: var(--color-accent-300); }
+.cs-thumb .a2 { fill: var(--color-accent-400); stroke: var(--color-accent-400); }
+.cs-thumb .b0 { fill: var(--color-neutral-200); stroke: var(--color-neutral-200); }
+.cs-thumb .b1 { fill: var(--color-neutral-300); stroke: var(--color-neutral-300); }
+.cs-thumb .b2 { fill: var(--color-neutral-400); stroke: var(--color-neutral-400); }
+.cs-thumb .k0 { fill: var(--color-accent-500); stroke: var(--color-accent-500); }
+.cs-thumb .k1 { fill: var(--color-accent-600); stroke: var(--color-accent-600); }
+.cs-thumb .k2 { fill: var(--color-accent-700); stroke: var(--color-accent-700); }
+.cs-thumb .game-thumb-label { color: var(--color-bg); }
+
+/* — contact — */
+.contact { background: var(--color-surface); padding: clamp(32px, 5.6vw, 72px) var(--gutter); display: grid; grid-template-columns: 5fr 6fr; gap: clamp(24px, 5.6vw, 72px); }
+.contact-intro { display: flex; flex-direction: column; gap: 14px; }
+.contact h2 { font-size: clamp(30px, 3.4vw, 44px); }
+.contact-intro p { font-size: clamp(16px, 1.4vw, 17px); color: var(--color-neutral-800); max-width: 380px; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; border: 0; margin: 0; padding: 0; }
+.field-wide { grid-column: 1 / -1; }
+.field > label, .field > legend { font-size: 14px; font-weight: 600; color: var(--color-neutral-800); padding: 0; }
+.input {
+  width: 100%; min-height: 48px; padding: 10px 16px; font: inherit; font-size: 16px;
+  color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: 999px;
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent-700); outline-offset: 0; outline-width: 2px; border-radius: 999px; }
+textarea.input { min-height: 140px; resize: vertical; border-radius: 24px; padding: 12px 16px; }
+textarea.input:focus-visible { border-radius: 24px; }
+.input[aria-invalid="true"] { border-color: var(--color-accent-700); }
+.seg { display: inline-flex; flex-wrap: wrap; align-self: flex-start; border: 1px solid var(--color-divider); border-radius: 999px; overflow: hidden; background: var(--color-bg); }
+.seg-opt { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; font-size: 15px; cursor: pointer; }
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt input { position: absolute; opacity: 0; width: 0; height: 0; }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-text); font-weight: 600; }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 3px solid var(--color-accent-700); outline-offset: -3px; }
+.form-status { grid-column: 1 / -1; font-size: 15px; min-height: 1.55em; }
+.form-status.ok { color: var(--color-accent-2-800); font-weight: 600; }
+.form-status.err { color: var(--color-accent-800); font-weight: 600; }
+
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: clamp(20px, 2.2vw, 28px) var(--gutter); font-size: 14px; color: var(--color-neutral-700); }
+
+/* — grand écran : trois vignettes par ligne, titres à 24px pour qu'ils tiennent sur une ligne à côté de leur icône
+     (environ 226px disponibles à 1280px) ; en dessous de 1250px, deux colonnes — */
+@media (min-width: 1250px) {
+  .games { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .game h3 { font-size: 24px; }
+}
+/* — tablette — */
+@media (max-width: 960px) {
+  .blob-2 { right: 40px; top: 260px; width: 120px; }
+  .contact { grid-template-columns: 1fr; }
+  .contact-intro p { max-width: 560px; }
+}
+/* — mobile — */
+@media (max-width: 680px) {
+  .blob-2 { display: none; }
+  .nav-links .nav-games { display: none; }
+  .games { grid-template-columns: 1fr; padding-left: 12px; padding-right: 12px; }
+  .game-togglr { order: -1; }
+  .tg-thumb { aspect-ratio: 1; }
+  .tg-grid { width: 72%; }
+  .game-togglr .btn { width: 100%; min-height: 52px; }
+  .game-desktop .game-cta { display: none; }
+  .game-desktop-only { display: flex; }
+  .form { grid-template-columns: 1fr; gap: 14px; }
+  .form .btn { width: 100%; }
+  .footer .rights { display: none; }
+}
+</style>
 </head>
 <body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
 
-<header>
-    <div class="logo">
-        <img src="/img/logo-fmecs.png">
-    </div>
-    <!-- Bouton burger (masqué sur desktop) -->
-    <div class="burger" id="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <nav class="nav" id="nav-menu">
-    <!-- Icônes des réseaux sociaux (affichées sur desktop) -->
-    <!a href="https://twitter.com/tonsite" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
-        <i class="fab fa-twitter"></i>
-    <!/a>
-    <!a href="https://instagram.com/tonsite" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-    <!/a>
-    <!a href="https://github.com/tonsite" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-    <!/a>
-</nav>
-</header>
+<div class="page">
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
 
-<section class="hero">
-    <div class="container">
-        <h2>Ybial – Des jeux intelligents et accessibles</h2>
-        <p>FmecS est le studio de la marque Ybial, imaginé pour le développement d'expériences interactives uniques, de jeux de réflexion qui certainement vous plairont.</p>
-    </div>
-</section>
+  <header>
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav-brand" href="./" aria-label="FmecS, accueil">
+        <span class="logo" aria-hidden="true"><span class="logo-stack">
+          <span class="logo-dots"><span></span><span></span><span></span><span></span><span class="on"></span></span>
+          <span class="logo-word">FmecS</span>
+        </span></span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-games" href="#jeux">Les jeux</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-<section id="jeux" class="section alt">
-    <div class="container">
-        <h3>Nos Jeux</h3>
-        <div class="games-grid">
-            <div class="game-card">
-                <img src="/img/logo-morpion.png" alt="Morpion Solitaire" class="game-logo">
-                <a href="https://play.fmecs.fr/croix-de-malte" class="play-button" target="_blank">Jouer</a>
-            </div>
-            <div class="game-card">
-                <img src="/img/logo-togglr.png" alt="Togglr" class="game-logo">
-                <a href="https://play.fmecs.fr/togglr/defidujour" class="play-button" target="_blank">Jouer</a>
-            </div>
+  <main id="contenu">
+    <section class="hero" aria-labelledby="titre">
+      <span class="tag tag-accent-2">Studio FmecS · jeux Ybial</span>
+      <h1 id="titre">Des jeux de réflexion, un point à la fois.</h1>
+      <p>FmecS est le studio indépendant de la marque Ybial&nbsp;: des jeux de réflexion intelligents et accessibles, gratuits, simples à apprendre et longs à maîtriser, qui se jouent directement dans le navigateur.</p>
+    </section>
+
+    <section id="jeux" class="games" aria-labelledby="titre-jeux">
+      <h2 id="titre-jeux" class="visually-hidden">Les jeux</h2>
+
+      <article class="game game-morpion game-desktop" aria-labelledby="titre-morpion">
+        <div class="game-thumb mp-thumb" role="img" aria-label="Animation : des lignes de cinq points tracées une à une autour de la Croix de Malte">
+          <svg id="mp-board" viewBox="0 0 9 9" aria-hidden="true"></svg>
+          <span class="game-thumb-label" id="mp-label" aria-hidden="true">Lignes 0</span>
         </div>
-    </div>
-</section>
-<section id="contact" class="section">
-    <div class="container">
-        <h3>Contact</h3>
-        <p>Pour toute question ou collaboration, vous pouvez me contacter via ce <a id="open-modal" href="javascript:void(0);">formulaire</a>.</p>
-    </div>
-</section>
+        <div class="game-body">
+          <div class="game-tags"><span class="tag tag-neutral">Ordinateur et tablette</span><span class="tag tag-accent">Classement en ligne</span></div>
+          <div class="game-title"><img src="img/logo-morpion.png" width="48" height="48" alt=""><h3 id="titre-morpion">Croix de Malte</h3></div>
+          <p class="game-kicker">Le morpion solitaire</p>
+          <p>Partez de la croix de 36 points et tracez le plus de lignes de cinq points possible. Chaque point posé ouvre ou ferme des possibilités.</p>
+          <div class="game-cta">
+            <a class="btn btn-primary" href="https://play.fmecs.fr/croix-de-malte" target="_blank" rel="noopener">Jouer<span class="visually-hidden"> à Croix de Malte, le morpion solitaire (nouvel onglet)</span></a>
+            <span class="game-cta-note">Sans limite de temps</span>
+          </div>
+          <p class="game-desktop-only">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-2-700)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+            <span>À ouvrir sur ordinateur ou tablette&nbsp;: fmecs.fr</span>
+          </p>
+        </div>
+      </article>
 
-<!-- Fenêtre modale -->
-<div id="contact-modal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
+      <article class="game game-togglr" aria-labelledby="titre-togglr">
+        <div class="game-thumb tg-thumb" role="img" aria-label="Animation : une grille de 5 × 5 points résolue en quatre coups">
+          <div class="tg-grid" id="tg-grid" aria-hidden="true"></div>
+          <span class="game-thumb-label" id="tg-label" aria-hidden="true">Coups 0</span>
+        </div>
+        <div class="game-body">
+          <div class="game-tags"><span class="tag tag-neutral">Pensé pour mobile</span><span class="tag tag-togglr">Un défi par jour</span></div>
+          <div class="game-title"><img src="img/logo-togglr.png" width="48" height="48" alt=""><h3 id="titre-togglr">Togglr</h3></div>
+          <p>Touchez un point&nbsp;: il s’inverse, ses quatre voisins aussi. Retrouvez la forme du jour en un minimum de coups.</p>
+          <div class="game-cta">
+            <a class="btn btn-primary" href="https://play.fmecs.fr/togglr/defidujour" target="_blank" rel="noopener">Jouer au défi du jour<span class="visually-hidden"> de Togglr (nouvel onglet)</span></a>
+          </div>
+        </div>
+      </article>
 
-    <h3>Contact</h3>
-  <p id="form-success" style="display:none; text-align:center; padding:20px;">
-    Merci, votre message a bien été envoyé.
-  </p>
+      <article class="game game-casse-tetes game-desktop" aria-labelledby="titre-casse-tetes">
+        <div class="game-thumb cs-thumb" role="img" aria-label="Animation : les six pièces de la croix du charpentier s’emboîtent une à une, la pièce clé en dernier">
+          <svg id="cs-board" aria-hidden="true"></svg>
+          <span class="game-thumb-label" id="cs-label" aria-hidden="true">Pièces 0/6</span>
+        </div>
+        <div class="game-body">
+          <div class="game-tags"><span class="tag tag-neutral">Ordinateur et tablette</span><span class="tag tag-accent">Nouveau</span></div>
+          <div class="game-title"><img src="img/casse-tetes.svg" width="48" height="48" alt=""><h3 id="titre-casse-tetes">Casse-têtes</h3></div>
+          <p class="game-kicker">Premier puzzle&nbsp;: la croix du charpentier</p>
+          <p>Six pièces de bois entaillées à emboîter pour reformer la croix. Trouvez le bon ordre&nbsp;: la dernière pièce, la clé, verrouille l’ensemble.</p>
+          <div class="game-cta">
+            <!-- Bouton selon le nombre de puzzles publiés :
+                 0 → <span class="btn btn-soon">Bientôt disponible</span> ;
+                 1 → « Jouer » ci-dessous (ouvre le puzzle directement, nouvel onglet comme les autres jeux) ;
+                 2 ou plus → <a class="btn btn-primary" href="casse-tetes.html">Choisir un puzzle</a> (page de choix). -->
+            <a class="btn btn-primary" href="https://play.fmecs.fr/casse-tetes" target="_blank" rel="noopener">Jouer<span class="visually-hidden"> à Ybial Casse-têtes (nouvel onglet)</span></a>
+          </div>
+          <p class="game-desktop-only">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-2-700)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+            <span>À ouvrir sur ordinateur ou tablette&nbsp;: fmecs.fr</span>
+          </p>
+        </div>
+      </article>
+    </section>
 
-    <form action="https://formspree.io/f/mgoovrkz" method="POST" class="contact-form">
+    <section id="contact" class="contact" aria-labelledby="titre-contact">
+      <div class="contact-intro">
+        <h2 id="titre-contact">Une question, une idée&nbsp;?</h2>
+        <p>Un bug, un avis, une suggestion de règle, une collaboration&nbsp;: écrivez-moi, je réponds personnellement.</p>
+        <p>Vous préférez l’e-mail&nbsp;? <a href="mailto:contact@fmecs.fr">contact@fmecs.fr</a></p>
+      </div>
+      <!-- Envoi via Formspree : même formulaire que l'ancien site (déjà actif, pas d'adresse e-mail visible dans le code). -->
+      <form class="form" id="contact-form" data-endpoint="https://formspree.io/f/mgoovrkz" novalidate>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <div class="field">
+          <label for="f-nom">Votre nom</label>
+          <input class="input" id="f-nom" name="nom" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Votre e-mail</label>
+          <input class="input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+        </div>
+        <fieldset class="field field-wide">
+          <legend>Type de message</legend>
+          <div class="seg">
+            <label class="seg-opt"><input type="radio" name="type" value="Commentaire" checked>Commentaire</label>
+            <label class="seg-opt"><input type="radio" name="type" value="Avis">Avis</label>
+            <label class="seg-opt"><input type="radio" name="type" value="Problème">Problème</label>
+          </div>
+        </fieldset>
+        <div class="field field-wide">
+          <label for="f-objet">Objet</label>
+          <input class="input" id="f-objet" name="objet">
+        </div>
+        <div class="field field-wide">
+          <label for="f-message">Message</label>
+          <textarea class="input" id="f-message" name="message" required></textarea>
+        </div>
+        <div><button type="submit" class="btn btn-primary">Envoyer</button></div>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
 
-  <label for="name">Votre nom</label>
-  <input type="text" id="name" name="name" required>
-
-  <label for="subject">Objet</label>
-  <input type="text" id="subject" name="subject" required>
-
-  <label for="email">Votre email</label>
-  <input type="email" id="email" name="email" required>
-
-  <label for="message">Message</label>
-  <textarea id="message" name="message" rows="5" required></textarea>
-
-  <input type="text" name="_gotcha" style="display:none">
-
-  <button type="submit">Envoyer</button>
-</form>
-
-  </div>
+  <footer class="footer">
+    <span>© 2026 Ybial<span class="rights"> — Tous droits réservés</span></span>
+    <a href="mentionslegales.html">Mentions légales</a>
+  </footer>
 </div>
 
-<footer>
-    <div class="container">
-        <p>© 2026 Ybial – Tous droits réservés | <a href="/mentionslegales.html">Mentions légales</a></p>
-    </div>
-</footer>
-
 <script>
-  const modal = document.getElementById("contact-modal");
-  const openBtn = document.getElementById("open-modal");
-  const closeBtn = document.querySelector(".close");
-  const form = document.querySelector(".contact-form");
-  const successMsg = document.getElementById("form-success");
-  const burger = document.getElementById('burger');
-  const navMenu = document.getElementById('nav-menu');
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SVG = 'http://www.w3.org/2000/svg';
+  const el = (name, attrs) => { const n = document.createElementNS(SVG, name); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
 
-  burger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+  // Morpion Solitaire : la Croix de Malte puis 14 coups, chacun = [point posé, début, fin de la ligne].
+  // Lignes horizontales, verticales et diagonales en alternance ; séquence vérifiée selon la règle 5T
+  // (4 points existants + le point posé, deux lignes de même direction ne partagent jamais un segment).
+  const CROSS = (() => {
+    const v = [[3,0],[6,0],[6,3],[9,3],[9,6],[6,6],[6,9],[3,9],[3,6],[0,6],[0,3],[3,3]], pts = [];
+    for (let i = 0; i < 12; i++) {
+      const [x1,y1] = v[i], [x2,y2] = v[(i+1)%12];
+      for (let k = 0; k < 3; k++) pts.push([x1 + (x2-x1)/3*k, y1 + (y2-y1)/3*k]);
+    }
+    return pts;
+  })();
+  const MOVES = [
+    [[2,0],[2,0],[6,0]], [[2,2],[0,4],[4,0]], [[7,9],[3,9],[7,9]], [[7,7],[5,9],[9,5]],
+    [[0,2],[0,2],[0,6]], [[7,2],[5,0],[9,4]], [[9,7],[9,3],[9,7]], [[2,7],[0,5],[4,9]],
+    [[3,4],[3,0],[3,4]], [[6,5],[6,5],[6,9]], [[4,3],[0,3],[4,3]], [[5,4],[3,2],[7,6]],
+    [[5,6],[5,6],[9,6]], [[4,5],[2,3],[6,7]],
+  ];
+  const board = document.getElementById('mp-board');
+  const mpLabel = document.getElementById('mp-label');
+  for (let y = 0; y < 10; y++) for (let x = 0; x < 10; x++) board.appendChild(el('circle', { class: 'lattice', cx: x, cy: y, r: .05 }));
+  const lineLayer = board.appendChild(el('g', {}));
+  CROSS.forEach(([x, y]) => board.appendChild(el('circle', { class: 'pt', cx: x, cy: y, r: .16 })));
+  const moveLines = MOVES.map(([, a, b]) => lineLayer.appendChild(el('line', { class: 'ln', x1: a[0], y1: a[1], x2: b[0], y2: b[1] })));
+  const movePts = MOVES.map(([p]) => board.appendChild(el('circle', { class: 'pt', cx: p[0], cy: p[1], r: .16 })));
+
+  function drawMorpion(t) {
+    const shown = Math.min(t % (MOVES.length + 3), MOVES.length); // tous les coups puis 3 temps de pause
+    MOVES.forEach((_, i) => {
+      const visible = i < shown, last = i === shown - 1;
+      moveLines[i].style.display = movePts[i].style.display = visible ? '' : 'none';
+      moveLines[i].classList.toggle('last', last);
+      movePts[i].classList.toggle('last', last);
     });
+    mpLabel.textContent = 'Lignes ' + shown;
+  }
 
-  // Ouvrir la modale
-  openBtn.onclick = () => {
-    modal.style.display = "block";
-    successMsg.style.display = "none"; // Cache le message
-    form.style.display = "block";      // Réaffiche le formulaire
-  };
+  // Togglr : un point inverse aussi ses quatre voisins ; grille mélangée puis résolue en 4 coups
+  const N = 5;
+  const TARGET = [7, 11, 12, 13, 17];
+  const TG_MOVES = [[0,0],[4,1],[1,4],[3,3]];
+  const flip = (on, r, c) => [[r,c],[r-1,c],[r+1,c],[r,c-1],[r,c+1]].forEach(([a,b]) => {
+    if (a >= 0 && a < N && b >= 0 && b < N) { const i = a*N + b; on.has(i) ? on.delete(i) : on.add(i); }
+  });
+  const grid = document.getElementById('tg-grid');
+  const tgLabel = document.getElementById('tg-label');
+  const cells = Array.from({ length: N*N }, () => grid.appendChild(document.createElement('span')));
 
-  // Fermer la modale
-  closeBtn.onclick = () => modal.style.display = "none";
-  window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+  function drawTogglr(t) {
+    const s = t % 7; // état mélangé, 4 coups, 2 temps « réussi »
+    const on = new Set(TARGET);
+    TG_MOVES.forEach(([r,c]) => flip(on, r, c));
+    const done = Math.min(s, 4);
+    for (let k = 0; k < done; k++) flip(on, ...TG_MOVES[k]);
+    const last = done > 0 && s <= 4 ? TG_MOVES[done-1] : null;
+    cells.forEach((cell, i) => {
+      cell.classList.toggle('on', on.has(i));
+      cell.classList.toggle('pressed', !!last && last[0]*N + last[1] === i);
+    });
+    tgLabel.textContent = s >= 4 ? 'Réussi en 4 coups' : 'Coups ' + done;
+  }
 
-  // Envoi AJAX
-  form.addEventListener("submit", async (e) => {
+  // Casse-têtes : croix du charpentier (6 barres 2×2×8 en voxels), dessinée en isométrique.
+  // Ordre d'assemblage ; une case partagée appartient à la pièce posée en dernier (les premières montrent leurs
+  // entailles). Même géométrie et mêmes teintes que l'icône (outils/icone_casse_tetes.py).
+  const range = (a, b) => Array.from({ length: b - a }, (_, i) => a + i);
+  const bar = (xs, ys, zs) => xs.flatMap(x => ys.flatMap(y => zs.map(z => [x, y, z])));
+  const BURR = [
+    { axis: 0, tone: 'a', cells: bar(range(-4, 4), [-2, -1], [-1, 0]) },
+    { axis: 1, tone: 'b', cells: bar([-1, 0], range(-4, 4), [-2, -1]) },
+    { axis: 1, tone: 'a', cells: bar([-1, 0], range(-4, 4), [0, 1]) },
+    { axis: 0, tone: 'b', cells: bar(range(-4, 4), [0, 1], [-1, 0]) },
+    { axis: 2, tone: 'a', cells: bar([-2, -1], [-1, 0], range(-4, 4)) },
+    { axis: 2, tone: 'k', cells: bar([0, 1], [-1, 0], range(-4, 4)) }, // la clé
+  ];
+  const key = c => c.join(',');
+  const owner = new Map();
+  BURR.forEach((p, i) => p.cells.forEach(c => owner.set(key(c), i)));
+  BURR.forEach((p, i) => { p.own = p.cells.filter(c => owner.get(key(c)) === i); });
+  const ISO_C = Math.cos(Math.PI / 6);
+  const iso = (x, y, z) => [(x - y) * ISO_C, (x + y) * .5 - z];
+  const FACES = [ // [face, voisin qui la cache, coins]
+    [0, [0, 0, 1], [[0,0,1],[1,0,1],[1,1,1],[0,1,1]]],
+    [1, [1, 0, 0], [[1,0,0],[1,1,0],[1,1,1],[1,0,1]]],
+    [2, [0, 1, 0], [[0,1,0],[1,1,0],[1,1,1],[0,1,1]]],
+  ];
+  const csBoard = document.getElementById('cs-board');
+  const csLabel = document.getElementById('cs-label');
+
+  // pièces 0..count-1 posées ; la pièce `moving` (optionnelle) arrive le long de son axe, décalée de `offset`
+  function renderBurr(count, moving = -1, offset = 0) {
+    const placed = new Set();
+    for (let i = 0; i < count; i++) BURR[i].own.forEach(c => placed.add(key(c)));
+    const voxels = [];
+    for (let i = 0; i < count; i++) BURR[i].own.forEach(c => voxels.push({ c, i, solid: placed }));
+    if (moving >= 0) {
+      const p = BURR[moving], mine = new Set(p.own.map(key));
+      p.own.forEach(c => { const m = c.slice(); m[p.axis] += offset; voxels.push({ c: m, src: c, i: moving, solid: mine }); });
+    }
+    voxels.sort((a, b) => (a.c[0] + a.c[1] + a.c[2]) - (b.c[0] + b.c[1] + b.c[2]));
+    let out = '';
+    for (const v of voxels) {
+      const ref = v.src || v.c;
+      for (const [f, n, corners] of FACES) {
+        if (v.solid.has(key([ref[0] + n[0], ref[1] + n[1], ref[2] + n[2]]))) continue;
+        const pts = corners.map(([dx, dy, dz]) => iso(v.c[0] + dx, v.c[1] + dy, v.c[2] + dz).map(n => n.toFixed(3)).join(',')).join(' ');
+        out += `<polygon class="${BURR[v.i].tone}${f}" points="${pts}"/>`;
+      }
+    }
+    csBoard.innerHTML = out;
+  }
+  { // cadrage fixe sur la croix assemblée
+    const xs = [], ys = [];
+    owner.forEach((_, k) => { const [x, y, z] = k.split(',').map(Number); for (const d of [[0,0,0],[1,1,1],[1,0,0],[0,1,0],[0,0,1],[1,1,0],[1,0,1],[0,1,1]]) { const [sx, sy] = iso(x + d[0], y + d[1], z + d[2]); xs.push(sx); ys.push(sy); } });
+    const w = Math.max(...xs) - Math.min(...xs), h = Math.max(...ys) - Math.min(...ys), m = .3;
+    csBoard.setAttribute('viewBox', `${Math.min(...xs) - m} ${Math.min(...ys) - m} ${w + 2*m} ${h + 2*m}`);
+  }
+
+  let csFrame = 0;
+  function drawCasseTetes(t) {
+    const s = t % (BURR.length + 3); // 6 pièces puis 3 temps « assemblée »
+    cancelAnimationFrame(csFrame);
+    if (s >= BURR.length) { renderBurr(BURR.length); csLabel.textContent = 'Croix assemblée'; return; }
+    csLabel.textContent = `Pièces ${s + 1}/${BURR.length}`;
+    const start = performance.now(), DUR = 650, FROM = 9;
+    const step = now => {
+      const k = Math.min((now - start) / DUR, 1), ease = 1 - Math.pow(1 - k, 3);
+      if (k < 1) { renderBurr(s, s, FROM * (1 - ease)); csFrame = requestAnimationFrame(step); }
+      else renderBurr(s + 1);
+    };
+    csFrame = requestAnimationFrame(step);
+  }
+
+  if (reduceMotion) {
+    drawMorpion(MOVES.length); drawTogglr(5); renderBurr(BURR.length); csLabel.textContent = 'Croix assemblée';
+  } else {
+    let t = 0;
+    drawMorpion(t); drawTogglr(t); drawCasseTetes(t);
+    setInterval(() => { if (!document.hidden) { t++; drawMorpion(t); drawTogglr(t); drawCasseTetes(t); } }, 950);
+  }
+
+  // Formulaire de contact
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const setStatus = (msg, kind) => { status.textContent = msg; status.className = 'form-status ' + (kind || ''); };
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    const data = new FormData(form);
-
-    const response = await fetch("https://formspree.io/f/mgoovrkz", {
-      method: "POST",
-      body: data,
-      headers: { "Accept": "application/json" }
+    const invalid = [...form.querySelectorAll('[required]')].filter(f => {
+      const bad = !f.checkValidity() || !f.value.trim();
+      f.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      return bad;
     });
-
-    if (response.ok) {
+    if (invalid.length) {
+      setStatus('Merci de renseigner votre nom, un e-mail valide et votre message.', 'err');
+      invalid[0].focus();
+      return;
+    }
+    const endpoint = form.dataset.endpoint;
+    if (!endpoint) {
+      setStatus('L’envoi n’est pas encore disponible. Réessayez bientôt.', 'err');
+      return;
+    }
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    setStatus('Envoi en cours…');
+    try {
+      const data = new FormData(form);
+      data.set('_subject', `[fmecs.fr] ${data.get('type')}${data.get('objet').trim() ? ' : ' + data.get('objet').trim() : ''}`);
+      const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(res.status);
+      // Message reçu par le service : on vide le formulaire
       form.reset();
-      form.style.display = "none";        // Cache le formulaire
-      successMsg.style.display = "block"; // Affiche le message
-    } else {
-      form.style.display = "none";
-      successMsg.innerText = "Une erreur est survenue. Merci de réessayer.";
-      successMsg.style.display = "block";
+      form.querySelectorAll('[aria-invalid]').forEach(f => f.removeAttribute('aria-invalid'));
+      setStatus('Merci ! Votre message est bien parti, je vous réponds rapidement.', 'ok');
+    } catch {
+      setStatus('L’envoi a échoué. Vérifiez votre connexion et réessayez.', 'err');
+    } finally {
+      button.disabled = false;
     }
   });
+  form.addEventListener('input', (e) => { if (e.target.getAttribute('aria-invalid') === 'true' && e.target.checkValidity() && e.target.value.trim()) e.target.setAttribute('aria-invalid', 'false'); });
+})();
 </script>
-
 </body>
 </html>

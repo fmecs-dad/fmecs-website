@@ -1,129 +1,136 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morpion Solitaire – Croix de Malte – Mentions Légales</title>
-    <meta name="description" content="Mentions légales du jeu Morpion Solitaire Croix de Malte">
-    <link rel="icon" type="image/png" href="favicon-fmecs.ico?v=1">
-    <link rel="shortcut icon" href="/favicon-fmecs.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <style>
-        /* --- BASE --- */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #1a1a1a;
-            color: #f0f0f0;
-            line-height: 1.6;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mentions légales — FmecS · jeux Ybial</title>
+<meta name="description" content="Mentions légales du site fmecs.fr : éditeur, hébergement, propriété intellectuelle et données personnelles.">
+<meta name="theme-color" content="#f5ead8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<style>
+@font-face { font-family: 'Nunito'; font-style: normal; font-weight: 500 800; font-display: swap; src: url(fonts/nunito-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Caprasimo'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/caprasimo-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Caprasimo'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/caprasimo-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/figtree-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/figtree-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
-        /* --- HEADER --- */
-        header {
-            position: fixed;
-            background: #333333;
-            padding: 10px 50px;
-            border-bottom: 1px solid #444444;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            top: 0;
-            left: 0;
-            right: 0;
-        }
+/* Charte « Organic » — mêmes tokens que index.html */
+:root {
+  --color-bg: #f5ead8;
+  --color-surface: #ebddc5;
+  --color-text: #201e1d;
+  --color-accent: #c67139;
+  --color-neutral-700: #645c50;
+  --color-neutral-800: #474238;
+  --color-accent-700: #8c491a;
+  --color-accent-800: #643312;
+  --color-accent-2-100: #f0fae1;
+  --color-accent-2-800: #3d472b;
+  --font-heading: "Caprasimo", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+  --font-logo: "Nunito", system-ui, sans-serif;
+  --gutter: clamp(20px, 5.6vw, 72px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-text-size-adjust: 100%; }
+h1, h2 { font-family: var(--font-heading); font-weight: 400; line-height: 1.1; letter-spacing: -0.015em; margin: 0; }
+p, ul { margin: 0; }
+a { color: var(--color-accent-700); text-underline-offset: 3px; }
+a:hover { color: var(--color-accent-800); }
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--color-accent-700); outline-offset: 3px; border-radius: 4px; }
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 10; background: var(--color-text); color: var(--color-bg); padding: 10px 16px; border-radius: 999px; text-decoration: none; }
+.skip-link:focus { top: 12px; color: var(--color-bg); }
 
-        .logo img {
-            height: 72px;
-            width: auto;
-            display: block;
-        }
+/* logo — identique à index.html */
+.logo { flex: none; width: 1em; height: 1em; border-radius: .18em; background: var(--color-accent); display: inline-flex; align-items: center; justify-content: center; }
+.logo-stack { display: flex; flex-direction: column; gap: .055em; }
+.logo-dots { display: flex; justify-content: space-between; padding-left: .0128em; padding-right: .0203em; }
+.logo-dots span { width: .095em; height: .095em; border-radius: 50%; background: var(--color-bg); }
+.logo-dots span.on { background: var(--color-accent-2-800); }
+.logo-word { font-family: var(--font-logo); font-weight: 650; font-size: .22em; letter-spacing: -.01em; line-height: .9; color: var(--color-text); white-space: nowrap; }
 
-        /* --- CONTAINER --- */
-        .container {
-            width: 90%;
-            max-width: 900px;
-            margin: 100px auto 0;
-            padding: 20px;
-            font-size: 14px;
-            line-height: 1.5;
-        }
+.page { max-width: 1280px; margin: 0 auto; }
+.nav { display: flex; align-items: center; gap: 24px; padding: clamp(16px, 2.2vw, 28px) var(--gutter); }
+.nav-brand { display: flex; text-decoration: none; font-size: clamp(64px, 5.6vw, 72px); border-radius: .18em; }
+.nav-back { margin-left: auto; display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; color: var(--color-text); font-weight: 600; font-size: 15px; text-decoration: none; }
+.nav-back:hover { color: var(--color-accent-700); }
 
-        /* Taille des titres */
-        .container h1 {
-            font-size: 24px;
-        }
+.legal { max-width: 760px; padding: clamp(24px, 4vw, 48px) var(--gutter) clamp(48px, 7vw, 88px); display: flex; flex-direction: column; gap: 32px; }
+.legal h1 { font-size: clamp(38px, 5vw, 56px); }
+.legal .tag { align-self: flex-start; padding: 3px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.legal section { display: flex; flex-direction: column; gap: 10px; padding: 24px clamp(20px, 3vw, 32px); background: var(--color-surface); border-radius: 28px; }
+.legal h2 { font-size: clamp(22px, 2.4vw, 26px); }
+.legal p, .legal li { color: var(--color-neutral-800); }
+.legal ul { padding-left: 1.2em; display: flex; flex-direction: column; gap: 6px; }
+.legal .updated { font-size: 14px; color: var(--color-neutral-700); }
 
-        .container h2 {
-            font-size: 20px;
-        }
-
-        /* Taille des paragraphes et listes */
-        .container p, .container ul, .container li {
-            font-size: 16px;
-        }
-
-        /* --- LIENS --- */
-        a {
-            color: #4d94ff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #2a7ae9;
-        }
-
-        /* --- TITRES --- */
-        h1, h2 {
-            color: #f0f0f0;
-        }
-
-        /* --- LISTES --- */
-        ul {
-            margin-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-    </style>
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: clamp(20px, 2.2vw, 28px) var(--gutter); font-size: 14px; color: var(--color-neutral-700); }
+</style>
 </head>
 <body>
-<header>
-    <div class="logo">
-      <img src="/img/logo-fmecs.png">
-    </div>
-    <nav>
-       <a href="/">Retour au site</a>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<div class="page">
+  <header>
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav-brand" href="./" aria-label="FmecS, accueil">
+        <span class="logo" aria-hidden="true"><span class="logo-stack">
+          <span class="logo-dots"><span></span><span></span><span></span><span></span><span class="on"></span></span>
+          <span class="logo-word">FmecS</span>
+        </span></span>
+      </a>
+      <a class="nav-back" href="./">← Retour au site</a>
     </nav>
-</header>
+  </header>
 
-<div class="container">
-    <h1>Mentions Légales</h1>
+  <main id="contenu" class="legal">
+    <span class="tag">fmecs.fr</span>
+    <h1>Mentions légales</h1>
 
-    <h2>Éditeur</h2>
-    <p>Ce site est édité par Sébastien Bréheret, sous la marque <strong>Ybial</strong> (marque déposée à l’INPI, n°5216829).</p>
+    <section aria-labelledby="t-editeur">
+      <h2 id="t-editeur">Éditeur</h2>
+      <p>Ce site est édité par Sébastien Bréheret, sous la marque Ybial (marque déposée à l’INPI, n°&nbsp;5216829).</p>
+    </section>
 
-    <h2>Hébergement</h2>
-    <p>
-        Hébergement du jeu : Vercel<br>
-        Site web : <a href="https://vercel.com" target="_blank" rel="noopener">https://vercel.com</a><br><br>
-        Base de données : Supabase<br>
-        Site web : <a href="https://supabase.com" target="_blank" rel="noopener">https://supabase.com</a>
-    </p>
+    <section aria-labelledby="t-hebergement">
+      <h2 id="t-hebergement">Hébergement</h2>
+      <ul>
+        <li>Site et jeux (dont Ybial Casse-têtes)&nbsp;: Vercel — <a href="https://vercel.com">vercel.com</a></li>
+        <li>Base de données des jeux&nbsp;: Supabase — <a href="https://supabase.com">supabase.com</a></li>
+      </ul>
+    </section>
 
-    <h2>Contact</h2>
-    <p>Pour toute question : <a href="mailto:contact@fmecs.fr">contact@fmecs.fr</a></p>
+    <section aria-labelledby="t-contact">
+      <h2 id="t-contact">Contact</h2>
+      <p>Pour toute question&nbsp;: <a href="mailto:contact@fmecs.fr">contact@fmecs.fr</a>, ou le <a href="./#contact">formulaire de contact</a> de la page d’accueil.</p>
+    </section>
 
-    <h2>Propriété intellectuelle</h2>
-    <p>
-        Les jeux et textes originaux de ce site sont la propriété de Ybial. Toute reproduction est interdite sans autorisation.
-        Les images de fond utilisées dans le jeu "Morpion Solitaire - Croix de Malte" sont des œuvres libres de droits, créditées à leurs auteurs. Elles ne sont pas collectées ni associées aux données des utilisateurs.
-    </p>
+    <section aria-labelledby="t-pi">
+      <h2 id="t-pi">Propriété intellectuelle</h2>
+      <p>Les jeux et textes originaux de ce site sont la propriété de Ybial. Toute reproduction est interdite sans autorisation.</p>
+      <p>Les images de fond utilisées dans le jeu «&nbsp;Morpion Solitaire — Croix de Malte&nbsp;» sont des œuvres libres de droits, créditées à leurs auteurs. Elles ne sont pas collectées ni associées aux données des utilisateurs.</p>
+      <p>Ybial Casse-têtes utilise des sons de Kenney (<a href="https://www.kenney.nl">kenney.nl</a>), placés dans le domaine public (licence CC0), et les polices Zilla Slab et Source Sans 3 (licence SIL Open Font License). Les polices de ce site, Caprasimo, Figtree et Nunito, sont également sous licence SIL Open Font License.</p>
+    </section>
 
-    <h2>Données personnelles</h2>
-    
-    <p>Dernière mise à jour : 27 mars 2026</p>
-    <p>© 2026 Ybial – Tous droits réservés</p>
+    <!-- À FAIRE VALIDER : section rédigée pour la refonte (vide sur l'ancien site). -->
+    <section aria-labelledby="t-donnees">
+      <h2 id="t-donnees">Données personnelles</h2>
+      <p>Le formulaire de contact recueille votre nom, votre adresse e-mail, le type de message, son objet et son contenu. Ces informations servent uniquement à vous répondre et ne sont ni vendues ni cédées à des tiers.</p>
+      <p>Les messages sont transmis par le service Formspree (<a href="https://formspree.io">formspree.io</a>), qui les achemine par e-mail jusqu’à l’éditeur.</p>
+      <p>Conformément au RGPD, vous pouvez demander l’accès, la rectification ou la suppression de vos données en écrivant à <a href="mailto:contact@fmecs.fr">contact@fmecs.fr</a>.</p>
+      <p>La page d’accueil n’utilise ni cookie publicitaire ni outil de mesure d’audience.</p>
+      <p>Ybial Casse-têtes ne demande aucun compte et ne collecte aucune donnée personnelle. Il garde seulement deux réglages dans votre navigateur (son et aide visuelle, activés ou non), qui ne quittent pas votre appareil.</p>
+    </section>
+
+    <p class="updated">Dernière mise à jour&nbsp;: 2 novembre 2026</p>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Ybial — Tous droits réservés</span>
+    <a href="./">Accueil</a>
+  </footer>
 </div>
 </body>
 </html>
