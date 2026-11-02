@@ -1,0 +1,5 @@
+# www.fmecs.fr — tout est public
+User-agent: *
+Allow: /
+
+Sitemap: https://www.fmecs.fr/sitemap.xml
