@@ -269,7 +269,49 @@ textarea.input:focus-visible { border-radius: 24px; }
   .form .btn { width: 100%; }
   .footer .rights { display: none; }
 }
+/* Réseaux sociaux (pied de page) */
+.footer { align-items: center; }
+.social { display: flex; align-items: center; gap: 2px; }
+.social-label { margin-right: 6px; }
+.social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: var(--color-neutral-700); }
+.social a:hover { color: var(--color-accent-700); background: var(--color-surface); }
+.social svg { width: 22px; height: 22px; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.fmecs.fr/#fmecs",
+      "name": "FmecS",
+      "url": "https://www.fmecs.fr/",
+      "logo": "https://www.fmecs.fr/icon-512.png",
+      "email": "contact@fmecs.fr",
+      "description": "Studio indépendant de la marque Ybial : jeux de réflexion gratuits à jouer dans le navigateur.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Ybial"
+      },
+      "sameAs": [
+        "https://www.instagram.com/ybial_fmecs/",
+        "https://www.tiktok.com/@ybial_fmecs",
+        "https://www.facebook.com/ybial.fmecs"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.fmecs.fr/#site",
+      "name": "FmecS · jeux Ybial",
+      "url": "https://www.fmecs.fr/",
+      "inLanguage": "fr",
+      "publisher": {
+        "@id": "https://www.fmecs.fr/#fmecs"
+      }
+    }
+  ]
+}
+</script>
 <!-- audience:début -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -412,6 +454,12 @@ textarea.input:focus-visible { border-radius: 24px; }
 
   <footer class="footer">
     <span>© 2026 Ybial<span class="rights"> — Tous droits réservés</span></span>
+    <nav class="social" aria-label="Ybial sur les réseaux sociaux">
+      <span class="social-label">Suivez Ybial</span>
+      <a href="https://www.instagram.com/ybial_fmecs/" target="_blank" rel="noopener me" aria-label="Instagram (nouvel onglet)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg></a>
+      <a href="https://www.tiktok.com/@ybial_fmecs" target="_blank" rel="noopener me" aria-label="TikTok (nouvel onglet)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.2 2h3.1c.3 2.3 1.7 3.9 4 4.2v3.1c-1.5 0-2.8-.4-4-1.2v6.6a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.2a2.9 2.9 0 1 0 1.9 2.7z"/></svg></a>
+      <a href="https://www.facebook.com/ybial.fmecs" target="_blank" rel="noopener me" aria-label="Facebook (nouvel onglet)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8z"/></svg></a>
+    </nav>
     <a href="mentionslegales.html">Mentions légales</a>
   </footer>
 </div>
