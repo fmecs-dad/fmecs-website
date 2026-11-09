@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FmecS — Studio de développement indépendant · jeux Ybial</title>
-<meta name="description" content="FmecS est le studio indépendant de la marque Ybial : Croix de Malte (morpion solitaire), Togglr et Ybial Casse-têtes, des jeux de réflexion intelligents, accessibles et gratuits, à jouer dans le navigateur.">
+<meta name="description" content="FmecS est le studio indépendant de la marque Ybial : Croix de Malte (morpion solitaire), Togglr, Morphr et Ybial Casse-têtes, des jeux de réflexion intelligents, accessibles et gratuits, à jouer dans le navigateur.">
 <meta name="theme-color" content="#f5ead8">
 <!-- partage:début -->
 <link rel="canonical" href="https://www.fmecs.fr/">
@@ -13,11 +13,11 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://www.fmecs.fr/">
 <meta property="og:title" content="FmecS — Studio de développement indépendant · jeux Ybial">
-<meta property="og:description" content="FmecS est le studio indépendant de la marque Ybial : Croix de Malte (morpion solitaire), Togglr et Ybial Casse-têtes, des jeux de réflexion intelligents, accessibles et gratuits, à jouer dans le navigateur.">
+<meta property="og:description" content="FmecS est le studio indépendant de la marque Ybial : Croix de Malte (morpion solitaire), Togglr, Morphr et Ybial Casse-têtes, des jeux de réflexion intelligents, accessibles et gratuits, à jouer dans le navigateur.">
 <meta property="og:image" content="https://www.fmecs.fr/img/apercu-partage.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="FmecS, des jeux de réflexion : Croix de Malte, Togglr et Ybial Casse-têtes">
+<meta property="og:image:alt" content="FmecS, des jeux de réflexion : Croix de Malte, Togglr, Morphr et Ybial Casse-têtes">
 <meta name="twitter:card" content="summary_large_image">
 <!-- partage:fin -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -187,6 +187,15 @@ a:hover { color: var(--color-accent-800); }
 .mp-thumb .ln.last { stroke: var(--color-accent); }
 .mp-thumb .game-thumb-label { color: var(--color-neutral-800); }
 
+/* vignette Morphr : la silhouette à obtenir en ombre, les pièces glissent une à une jusqu'à la remplir */
+.mr-thumb { background: var(--color-accent-100); }
+.mr-thumb svg { width: 62%; height: auto; overflow: visible; }
+.mr-thumb .ombre { fill: var(--color-neutral-300); }
+.mr-thumb .piece { stroke: var(--color-accent-100); stroke-width: .06; stroke-linejoin: round; }
+.mr-thumb .piece.bouge { filter: drop-shadow(0 .1px .15px rgba(46, 43, 37, .35)); }
+.mr-thumb .game-thumb-label { color: var(--color-neutral-800); }
+.tag-morphr { background: var(--color-accent-100); color: var(--color-accent-800); }
+
 /* vignette Togglr */
 .tg-thumb { background: var(--togglr-board); }
 .tg-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(10px, 1.1vw, 14px); width: min(250px, 54%); }
@@ -195,19 +204,25 @@ a:hover { color: var(--color-accent-800); }
 .tg-grid span.pressed { transform: scale(.82); box-shadow: 0 0 0 4px var(--togglr-ring); }
 .tg-thumb .game-thumb-label { color: var(--color-text); }
 
-/* vignette Casse-têtes : la croix du charpentier s'assemble pièce par pièce, la clé (dernière) en terracotta */
+/* vignette Casse-têtes : le coffret marqueté s'ouvre sur six compartiments, chacun marqué du symbole de son puzzle */
 .cs-thumb { background: var(--color-accent-2-800); overflow: hidden; }
-.cs-thumb svg { width: 58%; height: auto; }
-.cs-thumb polygon { stroke-width: .1; stroke-linejoin: round; } /* le trait couvre les jointures entre cubes */
-.cs-thumb .a0 { fill: var(--color-accent-200); stroke: var(--color-accent-200); }
-.cs-thumb .a1 { fill: var(--color-accent-300); stroke: var(--color-accent-300); }
-.cs-thumb .a2 { fill: var(--color-accent-400); stroke: var(--color-accent-400); }
-.cs-thumb .b0 { fill: var(--color-neutral-200); stroke: var(--color-neutral-200); }
-.cs-thumb .b1 { fill: var(--color-neutral-300); stroke: var(--color-neutral-300); }
-.cs-thumb .b2 { fill: var(--color-neutral-400); stroke: var(--color-neutral-400); }
-.cs-thumb .k0 { fill: var(--color-accent-500); stroke: var(--color-accent-500); }
-.cs-thumb .k1 { fill: var(--color-accent-600); stroke: var(--color-accent-600); }
-.cs-thumb .k2 { fill: var(--color-accent-700); stroke: var(--color-accent-700); }
+.cs-thumb svg { width: 78%; height: auto; overflow: visible; }
+.cs-frame { fill: var(--color-accent-700); }
+.cs-inlay-a { fill: var(--color-accent-300); }
+.cs-inlay-b { fill: var(--color-accent-600); }
+.cs-inside { fill: var(--color-accent-800); }
+.cs-cell rect { fill: var(--color-accent-500); transition: fill .35s, transform .35s; }
+.cs-cell .sym { fill: none; stroke: var(--color-accent-200); stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; transition: stroke .35s; }
+.cs-cell .sym.full { fill: var(--color-accent-200); stroke: none; transition: fill .35s; }
+.cs-cell { transition: transform .35s; transform-box: fill-box; transform-origin: center; }
+.cs-cell.on { transform: translateY(-1.2px) scale(1.06); }
+.cs-cell.on rect { fill: var(--color-accent-400); }
+.cs-cell.on .sym { stroke: var(--togglr-ring); }   /* laiton, comme les symboles des puzzles réussis */
+.cs-cell.on .sym.full { fill: var(--togglr-ring); }
+.cs-lid { transform-box: fill-box; transform-origin: top; transition: transform .8s cubic-bezier(.3, .7, .3, 1), opacity .8s; }
+.cs-lid.open { transform: scaleY(.04); opacity: 0; }
+.cs-lid-panel { fill: var(--color-accent-600); }
+.cs-lid-emblem { fill: var(--togglr-ring); }
 .cs-thumb .game-thumb-label { color: var(--color-bg); }
 
 /* — contact — */
@@ -242,11 +257,9 @@ textarea.input:focus-visible { border-radius: 24px; }
 
 .footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: clamp(20px, 2.2vw, 28px) var(--gutter); font-size: 14px; color: var(--color-neutral-700); }
 
-/* — grand écran : trois vignettes par ligne, titres à 24px pour qu'ils tiennent sur une ligne à côté de leur icône
-     (environ 226px disponibles à 1280px) ; en dessous de 1250px, deux colonnes — */
+/* — quatre jeux : deux vignettes par ligne (2 × 2) sur ordinateur et tablette, une seule sur mobile — */
 @media (min-width: 1250px) {
-  .games { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .game h3 { font-size: 24px; }
+  .game h3 { font-size: 26px; }
 }
 /* — tablette — */
 @media (max-width: 960px) {
@@ -259,7 +272,9 @@ textarea.input:focus-visible { border-radius: 24px; }
   .blob-2 { display: none; }
   .nav-links .nav-games { display: none; }
   .games { grid-template-columns: 1fr; padding-left: 12px; padding-right: 12px; }
-  .game-togglr { order: -1; }
+  .game-togglr { order: -2; }
+  .game-morphr { order: -1; }
+  .game-morphr .btn { width: 100%; min-height: 52px; }
   .tg-thumb { aspect-ratio: 1; }
   .tg-grid { width: 72%; }
   .game-togglr .btn { width: 100%; min-height: 52px; }
@@ -388,27 +403,42 @@ textarea.input:focus-visible { border-radius: 24px; }
       </article>
 
       <article class="game game-casse-tetes game-desktop" aria-labelledby="titre-casse-tetes">
-        <div class="game-thumb cs-thumb" role="img" aria-label="Animation : les six pièces de la croix du charpentier s’emboîtent une à une, la pièce clé en dernier">
-          <svg id="cs-board" aria-hidden="true"></svg>
-          <span class="game-thumb-label" id="cs-label" aria-hidden="true">Pièces 0/6</span>
+        <div class="game-thumb cs-thumb" role="img" aria-label="Animation : un coffret en bois marqueté s’ouvre sur six compartiments, chacun marqué du symbole de son casse-tête">
+          <svg id="cs-board" viewBox="0 0 120 84" aria-hidden="true"></svg>
+          <span class="game-thumb-label" id="cs-label" aria-hidden="true">Le coffret</span>
         </div>
         <div class="game-body">
           <div class="game-tags"><span class="tag tag-neutral">Ordinateur et tablette</span><span class="tag tag-accent">Nouveau</span></div>
           <div class="game-title"><img src="img/casse-tetes.svg" width="48" height="48" alt=""><h3 id="titre-casse-tetes">Casse-têtes</h3></div>
-          <p class="game-kicker">Premier puzzle&nbsp;: la croix du charpentier</p>
-          <p>Six pièces de bois entaillées à emboîter pour reformer la croix. Trouvez le bon ordre&nbsp;: la dernière pièce, la clé, verrouille l’ensemble.</p>
+          <p class="game-kicker">Un coffret de six casse-têtes en bois</p>
+          <p>De la croix du charpentier au chef-d’œuvre, six assemblages en 3D à résoudre dans l’ordre de votre choix. Chaque pièce porte sa rune, chaque puzzle raconte son histoire, et vos records sont gardés.</p>
           <p class="game-more"><a href="casse-tetes-info.html">Règles et astuces<span class="visually-hidden"> d’Ybial Casse-têtes</span></a></p>
           <div class="game-cta">
-            <!-- Bouton selon le nombre de puzzles publiés :
-                 0 → <span class="btn btn-soon">Bientôt disponible</span> ;
-                 1 → « Jouer » ci-dessous (ouvre le puzzle directement, nouvel onglet comme les autres jeux) ;
-                 2 ou plus → <a class="btn btn-primary" href="casse-tetes.html">Choisir un puzzle</a> (page de choix). -->
+            <!-- Le choix du puzzle se fait dans le jeu (le coffret) : « Jouer » ouvre toujours play.fmecs.fr/casse-tetes. -->
             <a class="btn btn-primary" href="https://play.fmecs.fr/casse-tetes" target="_blank" rel="noopener">Jouer<span class="visually-hidden"> à Ybial Casse-têtes (nouvel onglet)</span></a>
           </div>
           <p class="game-desktop-only">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-2-700)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
             <span>À ouvrir sur ordinateur ou tablette&nbsp;: fmecs.fr</span>
           </p>
+        </div>
+      </article>
+      <article class="game game-morphr" aria-labelledby="titre-morphr">
+        <div class="game-thumb mr-thumb" role="img" aria-label="Animation : une figure de sept pièces se transforme en une nouvelle silhouette en trois coups">
+          <svg id="mr-board" aria-hidden="true"></svg>
+          <span class="game-thumb-label" id="mr-label" aria-hidden="true">Coups 0</span>
+        </div>
+        <div class="game-body">
+          <div class="game-tags"><span class="tag tag-neutral">Mobile et ordinateur</span><span class="tag tag-morphr">Un défi par jour</span><span class="tag tag-accent">À venir</span></div>
+          <div class="game-title"><img src="img/logo-morphr.png" width="48" height="48" alt=""><h3 id="titre-morphr">Morphr</h3></div>
+          <p>Une figure de sept pièces, une silhouette à obtenir&nbsp;: déplacez le moins de pièces possible. Facile en début de semaine, corsé le week-end.</p>
+          <p class="game-more"><a href="morphr-info.html">Règles et astuces<span class="visually-hidden"> de Morphr</span></a></p>
+          <div class="game-cta">
+            <!-- AVANT LE LANCEMENT (lundi 16 novembre) : bouton grisé et étiquette « À venir ».
+                 LE JOUR J : remettre l'étiquette « Nouveau » et ce bouton :
+                 <a class="btn btn-primary" href="https://play.fmecs.fr/morphr/" target="_blank" rel="noopener">Jouer au défi du jour<span class="visually-hidden"> de Morphr (nouvel onglet)</span></a> -->
+            <span class="btn btn-soon">Disponible le lundi 16 novembre</span>
+          </div>
         </div>
       </article>
     </section>
@@ -531,83 +561,109 @@ textarea.input:focus-visible { border-radius: 24px; }
     tgLabel.textContent = s >= 4 ? 'Réussi en 4 coups' : 'Coups ' + done;
   }
 
-  // Casse-têtes : croix du charpentier (6 barres 2×2×8 en voxels), dessinée en isométrique.
-  // Ordre d'assemblage ; une case partagée appartient à la pièce posée en dernier (les premières montrent leurs
-  // entailles). Même géométrie et mêmes teintes que l'icône (outils/icone_casse_tetes.py).
-  const range = (a, b) => Array.from({ length: b - a }, (_, i) => a + i);
-  const bar = (xs, ys, zs) => xs.flatMap(x => ys.flatMap(y => zs.map(z => [x, y, z])));
-  const BURR = [
-    { axis: 0, tone: 'a', cells: bar(range(-4, 4), [-2, -1], [-1, 0]) },
-    { axis: 1, tone: 'b', cells: bar([-1, 0], range(-4, 4), [-2, -1]) },
-    { axis: 1, tone: 'a', cells: bar([-1, 0], range(-4, 4), [0, 1]) },
-    { axis: 0, tone: 'b', cells: bar(range(-4, 4), [0, 1], [-1, 0]) },
-    { axis: 2, tone: 'a', cells: bar([-2, -1], [-1, 0], range(-4, 4)) },
-    { axis: 2, tone: 'k', cells: bar([0, 1], [-1, 0], range(-4, 4)) }, // la clé
+  // Casse-têtes : le coffret du jeu (3 × 2 compartiments) vu de dessus. Le couvercle marqueté s'ouvre, puis chaque
+  // compartiment se soulève à son tour, symbole en laiton, avec le nom de son puzzle. Ordre et symboles repris du jeu
+  // (casse-tête01/src/data/puzzles : du plus abordable au plus difficile).
+  const COFFRET = [
+    ['La croix du charpentier', 'malte'], ['Le cube de l’apprenti', 'kaunan'], ['La croix du compagnon', 'raidho'],
+    ['Le secret du menuisier', 'perthro'], ['Le nœud de l’ébéniste', 'gebo'], ['Le chef-d’œuvre', 'dagaz'],
   ];
-  const key = c => c.join(',');
-  const owner = new Map();
-  BURR.forEach((p, i) => p.cells.forEach(c => owner.set(key(c), i)));
-  BURR.forEach((p, i) => { p.own = p.cells.filter(c => owner.get(key(c)) === i); });
-  const ISO_C = Math.cos(Math.PI / 6);
-  const iso = (x, y, z) => [(x - y) * ISO_C, (x + y) * .5 - z];
-  const FACES = [ // [face, voisin qui la cache, coins]
-    [0, [0, 0, 1], [[0,0,1],[1,0,1],[1,1,1],[0,1,1]]],
-    [1, [1, 0, 0], [[1,0,0],[1,1,0],[1,1,1],[1,0,1]]],
-    [2, [0, 1, 0], [[0,1,0],[1,1,0],[1,1,1],[0,1,1]]],
-  ];
+  // Symboles dans un carré de 10 × 10 : runes du futhark, croix de Malte pleine pour le premier puzzle.
+  const MALTE = 'M5 5 L2.6 .6 L7.4 .6 Z M5 5 L9.4 2.6 L9.4 7.4 Z M5 5 L7.4 9.4 L2.6 9.4 Z M5 5 L.6 7.4 L.6 2.6 Z';
+  const SYMBOLS = {
+    malte: MALTE,
+    kaunan: 'M7 1 L3 5 L7 9',
+    raidho: 'M3 9 V1 L7 3 L3 5 L7 9',
+    perthro: 'M3 1 V9 M3 1 L5 3 L7 1 M3 9 L5 7 L7 9',
+    gebo: 'M2 1 L8 9 M8 1 L2 9',
+    dagaz: 'M2 1 V9 L8 1 V9 Z',
+  };
   const csBoard = document.getElementById('cs-board');
   const csLabel = document.getElementById('cs-label');
+  csBoard.appendChild(el('rect', { class: 'cs-frame', x: 6, y: 4, width: 108, height: 76, rx: 4 }));
+  // marqueterie : losanges clairs et foncés en alternance tout autour du cadre
+  const diamond = (x, y, k) => csBoard.appendChild(el('path', { class: k % 2 ? 'cs-inlay-b' : 'cs-inlay-a', d: `M${x} ${y - 1.5} L${x + 1.5} ${y} L${x} ${y + 1.5} L${x - 1.5} ${y} Z` }));
+  for (let x = 10, k = 0; x <= 110; x += 4, k++) { diamond(x, 7, k); diamond(x, 77, k + 1); }
+  for (let y = 11, k = 0; y <= 73; y += 4, k++) { diamond(9, y, k); diamond(111, y, k + 1); }
+  csBoard.appendChild(el('rect', { class: 'cs-inside', x: 12, y: 10, width: 96, height: 64, rx: 2 }));
+  const CW = (92 - 4) / 3, CH = (60 - 2) / 2;
+  const csCells = COFFRET.map(([, sym], i) => {
+    const x = 14 + (i % 3) * (CW + 2), y = 12 + Math.floor(i / 3) * (CH + 2);
+    const g = csBoard.appendChild(el('g', { class: 'cs-cell' }));
+    g.appendChild(el('rect', { x, y, width: CW, height: CH, rx: 2.5 }));
+    g.appendChild(el('path', { class: sym === 'malte' ? 'sym full' : 'sym', d: SYMBOLS[sym], transform: `translate(${x + CW / 2 - 6} ${y + CH / 2 - 6}) scale(1.2)` }));
+    return g;
+  });
+  const csLid = csBoard.appendChild(el('g', { class: 'cs-lid' }));
+  csLid.appendChild(el('rect', { class: 'cs-lid-panel', x: 12, y: 10, width: 96, height: 64, rx: 2 }));
+  csLid.appendChild(el('rect', { x: 17, y: 15, width: 86, height: 54, rx: 2, style: 'fill:none;stroke:var(--color-accent-300);stroke-width:.8' }));
+  csLid.appendChild(el('path', { class: 'cs-lid-emblem', d: MALTE, transform: 'translate(50 32) scale(2)' }));
 
-  // pièces 0..count-1 posées ; la pièce `moving` (optionnelle) arrive le long de son axe, décalée de `offset`
-  function renderBurr(count, moving = -1, offset = 0) {
-    const placed = new Set();
-    for (let i = 0; i < count; i++) BURR[i].own.forEach(c => placed.add(key(c)));
-    const voxels = [];
-    for (let i = 0; i < count; i++) BURR[i].own.forEach(c => voxels.push({ c, i, solid: placed }));
-    if (moving >= 0) {
-      const p = BURR[moving], mine = new Set(p.own.map(key));
-      p.own.forEach(c => { const m = c.slice(); m[p.axis] += offset; voxels.push({ c: m, src: c, i: moving, solid: mine }); });
-    }
-    voxels.sort((a, b) => (a.c[0] + a.c[1] + a.c[2]) - (b.c[0] + b.c[1] + b.c[2]));
-    let out = '';
-    for (const v of voxels) {
-      const ref = v.src || v.c;
-      for (const [f, n, corners] of FACES) {
-        if (v.solid.has(key([ref[0] + n[0], ref[1] + n[1], ref[2] + n[2]]))) continue;
-        const pts = corners.map(([dx, dy, dz]) => iso(v.c[0] + dx, v.c[1] + dy, v.c[2] + dz).map(n => n.toFixed(3)).join(',')).join(' ');
-        out += `<polygon class="${BURR[v.i].tone}${f}" points="${pts}"/>`;
-      }
-    }
-    csBoard.innerHTML = out;
-  }
-  { // cadrage fixe sur la croix assemblée
-    const xs = [], ys = [];
-    owner.forEach((_, k) => { const [x, y, z] = k.split(',').map(Number); for (const d of [[0,0,0],[1,1,1],[1,0,0],[0,1,0],[0,0,1],[1,1,0],[1,0,1],[0,1,1]]) { const [sx, sy] = iso(x + d[0], y + d[1], z + d[2]); xs.push(sx); ys.push(sy); } });
-    const w = Math.max(...xs) - Math.min(...xs), h = Math.max(...ys) - Math.min(...ys), m = .3;
-    csBoard.setAttribute('viewBox', `${Math.min(...xs) - m} ${Math.min(...ys) - m} ${w + 2*m} ${h + 2*m}`);
-  }
-
-  let csFrame = 0;
   function drawCasseTetes(t) {
-    const s = t % (BURR.length + 3); // 6 pièces puis 3 temps « assemblée »
-    cancelAnimationFrame(csFrame);
-    if (s >= BURR.length) { renderBurr(BURR.length); csLabel.textContent = 'Croix assemblée'; return; }
-    csLabel.textContent = `Pièces ${s + 1}/${BURR.length}`;
-    const start = performance.now(), DUR = 650, FROM = 9;
+    const s = t % (COFFRET.length + 5); // deux temps fermé, ouverture, six compartiments, deux temps de pause
+    csLid.classList.toggle('open', s >= 2);
+    csCells.forEach((c, i) => c.classList.toggle('on', i === s - 3));
+    csLabel.textContent = s < 2 ? 'Le coffret' : s >= 3 && s < 3 + COFFRET.length ? COFFRET[s - 3][0] : '6 casse-têtes';
+  }
+
+  // Morphr : un vrai défi facile (n°2, 3 coups). La silhouette à obtenir est en ombre ;
+  // les pièces à déplacer glissent et tournent une à une jusqu'à leur place.
+  const MR = {"niveau":"facile","objectif":3,"ordre":["P2","P1","L"],"types":{"G1":"grandTriangle","G2":"grandTriangle","M":"moyenTriangle","P1":"petitTriangle","P2":"petitTriangle","C":"carre","L":"parallelogramme"},"formes":{"grandTriangle":[[-2,-0.667],[2,-0.667],[0,1.333]],"moyenTriangle":[[-0.667,-0.667],[1.333,-0.667],[-0.667,1.333]],"petitTriangle":[[-1,-0.333],[1,-0.333],[0,0.667]],"carre":[[0,-1],[1,0],[0,1],[-1,0]],"parallelogramme":[[-1.5,-0.5],[0.5,-0.5],[1.5,0.5],[-0.5,0.5]]},"depart":{"G1":[1,-1.833,0,0],"G2":[-0.333,-0.5,6,0],"M":[-1.667,0.833,4,0],"P1":[1.667,1.5,2,0],"P2":[1,0.167,4,0],"C":[2,-0.5,0,0],"L":[2.5,1,2,0]},"arrivee":{"G1":[1,-1.833,0,0],"G2":[-0.333,-0.5,6,0],"M":[-1.667,0.833,4,0],"P1":[2.667,0.5,2,0],"P2":[-2.667,0.5,6,0],"C":[2,-0.5,0,0],"L":[-1.5,-1,2,0]}};
+  const mrBoard = document.getElementById('mr-board');
+  const mrLabel = document.getElementById('mr-label');
+  const MR_COLORS = { G1: '#c67139', G2: '#b2622d', M: '#d4874f', P1: '#e3a370', P2: '#a85a28', C: '#8c491a', L: '#bf6a35' };
+  const mrPoly = (id, [x, y, r, f]) => {
+    const a = r * Math.PI / 4, c = Math.cos(a), s = Math.sin(a);
+    return MR.formes[MR.types[id]].map(([px, py]) => { if (f) px = -px; return [px * c - py * s + x, px * s + py * c + y]; });
+  };
+  const mrPts = poly => poly.map(p => p.map(n => n.toFixed(3)).join(',')).join(' ');
+  { // cadrage fixe englobant la figure de départ et celle d'arrivée
+    const all = Object.keys(MR.depart).flatMap(id => [...mrPoly(id, MR.depart[id]), ...mrPoly(id, MR.arrivee[id])]);
+    const xs = all.map(p => p[0]), ys = all.map(p => p[1]), m = .3;
+    mrBoard.setAttribute('viewBox', `${Math.min(...xs) - m} ${Math.min(...ys) - m} ${Math.max(...xs) - Math.min(...xs) + 2 * m} ${Math.max(...ys) - Math.min(...ys) + 2 * m}`);
+  }
+  const mrShadow = 'M' + Object.keys(MR.arrivee).map(id => mrPts(mrPoly(id, MR.arrivee[id])).replace(/ /g, 'L')).join('ZM') + 'Z';
+  const mrPieces = Object.keys(MR.depart);
+  // pose intermédiaire d'une pièce entre départ et arrivée (rotation par le plus court chemin)
+  const mrLerp = (id, k) => {
+    const [x0, y0, r0, f0] = MR.depart[id], [x1, y1, r1, f1] = MR.arrivee[id];
+    let dr = ((r1 - r0) % 8 + 8) % 8; if (dr > 4) dr -= 8;
+    const x = x0 + (x1 - x0) * k, y = y0 + (y1 - y0) * k, r = r0 + dr * k, f = k < .5 ? f0 : f1;
+    return [x, y, r, f];
+  };
+  function renderMorphr(done, moving = -1, k = 0) {
+    let out = `<path class="ombre" d="${mrShadow}"/>`;
+    const order = mrPieces.filter(id => id !== MR.ordre[moving]).concat(moving >= 0 ? [MR.ordre[moving]] : []);
+    for (const id of order) {
+      const i = MR.ordre.indexOf(id);
+      const pose = i >= 0 && i < done ? MR.arrivee[id] : i === moving ? mrLerp(id, k) : MR.depart[id];
+      out += `<polygon class="piece${i === moving ? ' bouge' : ''}" fill="${MR_COLORS[id]}" points="${mrPts(mrPoly(id, pose))}"/>`;
+    }
+    mrBoard.innerHTML = out;
+  }
+  let mrFrame = 0;
+  function drawMorphr(t) {
+    const n = MR.ordre.length, s = t % (n + 4); // 1 temps de départ, n coups, 3 temps « réussi »
+    cancelAnimationFrame(mrFrame);
+    if (s === 0) { renderMorphr(0); mrLabel.textContent = 'Coups 0 · objectif ' + MR.objectif; return; }
+    if (s > n) { renderMorphr(n); mrLabel.textContent = `Réussi en ${n} coups`; return; }
+    mrLabel.textContent = `Coups ${s} · objectif ${MR.objectif}`;
+    const start = performance.now(), DUR = 700;
     const step = now => {
-      const k = Math.min((now - start) / DUR, 1), ease = 1 - Math.pow(1 - k, 3);
-      if (k < 1) { renderBurr(s, s, FROM * (1 - ease)); csFrame = requestAnimationFrame(step); }
-      else renderBurr(s + 1);
+      const k = Math.min((now - start) / DUR, 1), ease = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      if (k < 1) { renderMorphr(s - 1, s - 1, ease); mrFrame = requestAnimationFrame(step); }
+      else renderMorphr(s);
     };
-    csFrame = requestAnimationFrame(step);
+    mrFrame = requestAnimationFrame(step);
   }
 
   if (reduceMotion) {
-    drawMorpion(MOVES.length); drawTogglr(5); renderBurr(BURR.length); csLabel.textContent = 'Croix assemblée';
+    renderMorphr(MR.ordre.length); mrLabel.textContent = `Réussi en ${MR.ordre.length} coups`;
+    drawMorpion(MOVES.length); drawTogglr(5); drawCasseTetes(COFFRET.length + 3); // coffret ouvert, aucun compartiment mis en avant
   } else {
     let t = 0;
-    drawMorpion(t); drawTogglr(t); drawCasseTetes(t);
-    setInterval(() => { if (!document.hidden) { t++; drawMorpion(t); drawTogglr(t); drawCasseTetes(t); } }, 950);
+    drawMorpion(t); drawTogglr(t); drawCasseTetes(t); drawMorphr(t);
+    setInterval(() => { if (!document.hidden) { t++; drawMorpion(t); drawTogglr(t); drawCasseTetes(t); drawMorphr(t); } }, 950);
   }
 
   // Formulaire de contact
